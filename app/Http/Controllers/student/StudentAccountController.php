@@ -14,11 +14,5 @@ class StudentAccountController extends Controller
 
     public function index(){
         return view('students.dashboard');
-    }
-    public function feestatement(){
-        return view('students.feestatement');
-    }
-    public function accountpassword(){
-        return view('students.account-password');
-    }
+    } 
 }

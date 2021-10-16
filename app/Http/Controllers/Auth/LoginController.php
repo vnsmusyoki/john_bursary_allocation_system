@@ -34,11 +34,11 @@ class LoginController extends Controller
         if ($user->hasRole('admin')) {
             return  redirect()->route('admin');
         }
-        if ($user->hasRole('students')) {
+        if ($user->hasRole('student')) {
             return  redirect()->route('student');
         }
-        if ($user->hasRole('clerk')) {
-            return  redirect()->route('clerk');
+        if ($user->hasRole('school')) {
+            return  redirect()->route('school');
         }
     }
 }
