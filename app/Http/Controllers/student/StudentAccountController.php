@@ -9,10 +9,10 @@ class StudentAccountController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:students', 'verified']);
+        $this->middleware(['auth', 'role:student', 'verified']);
     }
 
     public function index(){
         return view('students.dashboard');
-    } 
+    }
 }
