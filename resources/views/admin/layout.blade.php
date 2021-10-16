@@ -62,8 +62,8 @@
 
 
                     <li class="side-nav-item">
-                        <a   href="{{ route('admin') }}" aria-expanded="false"
-                            aria-controls="sidebarDashboards" class="side-nav-link">
+                        <a href="{{ route('admin') }}" aria-expanded="false" aria-controls="sidebarDashboards"
+                            class="side-nav-link">
                             <i class="bi bi-speedometer2"></i>
 
                             <span> Dashboards </span>
@@ -74,36 +74,22 @@
                         <a data-bs-toggle="collapse" href="#sidebarTeachers" aria-expanded="false"
                             aria-controls="sidebarTeachers" class="side-nav-link">
                             <i class="bi bi-person-check"></i>
-                            <span> Teachers </span>
+                            <span> Counties </span>
                             <span class="menu-arrow"><i class="bi bi-chevron-right "></i></span>
 
                         </a>
                         <div class="collapse" id="sidebarTeachers">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href=" ">Products</a>
+                                    <a href=" ">Add New Subcounty</a>
                                 </li>
                                 <li>
-                                    <a href=" ">Products Details</a>
+                                    <a href=" ">Edit SUbcounty</a>
                                 </li>
                                 <li>
-                                    <a href=" ">Orders</a>
+                                    <a href=" ">All Sub Counties</a>
                                 </li>
-                                <li>
-                                    <a href=" ">Order Details</a>
-                                </li>
-                                <li>
-                                    <a href=" ">Customers</a>
-                                </li>
-                                <li>
-                                    <a href=" ">Shopping Cart</a>
-                                </li>
-                                <li>
-                                    <a href=" ">Checkout</a>
-                                </li>
-                                <li>
-                                    <a href=" ">Sellers</a>
-                                </li>
+
                             </ul>
                         </div>
                     </li>
@@ -112,23 +98,15 @@
                         <a data-bs-toggle="collapse" href="#sidebarStudents" aria-expanded="false"
                             aria-controls="sidebarStudents" class="side-nav-link">
                             <i class="bi bi-people-fill"></i>
-                            <span> Students </span>
+                            <span> Schools </span>
                             <span class="menu-arrow"><i class="bi bi-chevron-right "></i></span>
                         </a>
                         <div class="collapse" id="sidebarStudents">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href=" ">All Students</a>
+                                    <a href=" ">All Schools</a>
                                 </li>
-                                <li>
-                                    <a href="">Student Details</a>
-                                </li>
-                                <li>
-                                    <a href=" ">Admission Form</a>
-                                </li>
-                                <li>
-                                    <a href="">Student Body</a>
-                                </li>
+
                             </ul>
                         </div>
                     </li>
@@ -137,24 +115,16 @@
                         <a data-bs-toggle="collapse" href="#sidebarParents" aria-expanded="false"
                             aria-controls="sidebarParents" class="side-nav-link">
                             <i class="bi bi-people"></i>
-                            <span> Parents </span>
+                            <span> CDF </span>
                             <span class="menu-arrow"><i class="bi bi-chevron-right "></i></span>
                         </a>
                         <div class="collapse" id="sidebarParents">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href=" ">List</a>
+                                    <a href=" ">Add New</a>
                                 </li>
                                 <li>
-                                    <a href=" ">Details</a>
-                                </li>
-                                <li>
-                                    <a href=" ">Gantt <span
-                                            class="badge rounded-pill badge-light-lighten font-10 float-end">New</span></a>
-                                </li>
-                                <li>
-                                    <a href=" ">Create Project <span
-                                            class="badge rounded-pill badge-success-lighten font-10 float-end">New</span></a>
+                                    <a href=" ">CDF Budgets</a>
                                 </li>
                             </ul>
                         </div>
@@ -163,177 +133,26 @@
                         <a data-bs-toggle="collapse" href="#sidebaracc" aria-expanded="false" aria-controls="sidebaracc"
                             class="side-nav-link">
                             <i class="bi bi-currency-exchange"></i>
-                            <span> Accountant </span>
+                            <span> Students </span>
                             <span class="menu-arrow"><i class="bi bi-chevron-right "></i></span>
                         </a>
                         <div class="collapse" id="sidebaracc">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href=" ">List</a>
+                                    <a href=" ">All Applications</a>
                                 </li>
                                 <li>
-                                    <a href=" ">Details</a>
+                                    <a href=" ">Awarded Bursaries</a>
                                 </li>
                                 <li>
-                                    <a href=" ">Gantt <span
-                                            class="badge rounded-pill badge-light-lighten font-10 float-end">New</span></a>
+                                    <a href=" ">Denied Allocations </a>
                                 </li>
                                 <li>
-                                    <a href=" ">Create Project <span
-                                            class="badge rounded-pill badge-success-lighten font-10 float-end">New</span></a>
+                                    <a href=" ">Student Fee Ba;ances  </a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarlib" aria-expanded="false" aria-controls="sidebarlib"
-                            class="side-nav-link">
-                            <i class="bi bi-bookshelf"></i>
-                            <span> Library </span>
-                            <span class="menu-arrow"><i class="bi bi-chevron-right "></i></span>
-                        </a>
-                        <div class="collapse" id="sidebarlib">
-                            <ul class="side-nav-second-level">
-                                <li>
-                                    <a href="apps-projects-list.html">List</a>
-                                </li>
-                                <li>
-                                    <a href="apps-projects-details.html">Details</a>
-                                </li>
-                                <li>
-                                    <a href="apps-projects-gantt.html">Gantt <span
-                                            class="badge rounded-pill badge-light-lighten font-10 float-end">New</span></a>
-                                </li>
-                                <li>
-                                    <a href="apps-projects-add.html">Create Project <span
-                                            class="badge rounded-pill badge-success-lighten font-10 float-end">New</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{ url('admin/full-calendar') }}" class="side-nav-link">
-                            <i class="bi bi-calendar3"></i>
-                            <span> Full Calendar </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="" class="side-nav-link">
-                            <i class="bi bi-book-fill"></i>
-                            <span> Subject </span>
-                        </a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a href="" class="side-nav-link">
-                            <i class="bi bi-bell"></i>
-                            <span> Notifications </span>
-                        </a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a href="" class="side-nav-link">
-                            <i class="bi bi-briefcase-fill"></i>
-                            <span> Suggestion Box </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="" class="side-nav-link">
-                            <i class="uil-layer-group"></i>
-                            <span> Widgets </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="apps-file-manager.html" class="side-nav-link">
-                            <i class="uil-folder-plus"></i>
-                            <span> File Manager </span>
-                        </a>
-                    </li>
-
-
-
-                    <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarAccount" aria-expanded="false"
-                            aria-controls="sidebarAccount" class="side-nav-link">
-                            <i class="bi bi-gear"></i>
-                            <span> Account </span>
-                            <span class="menu-arrow"><i class="bi bi-chevron-right "></i></span>
-                        </a>
-                        <div class="collapse" id="sidebarAccount">
-                            <ul class="side-nav-second-level">
-                                <li>
-                                    <a href="">Horizontal</a>
-                                </li>
-                                <li>
-                                    <a href="">Detached</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="widgets.html" class="side-nav-link">
-                            <i class="uil-layer-group"></i>
-                            <span> Widgets </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarIcons" aria-expanded="false"
-                            aria-controls="sidebarIcons" class="side-nav-link">
-                            <i class="bi bi-calendar3"></i>
-                            <span> Icons </span>
-                            <span class="menu-arrow"><i class="bi bi-chevron-right "></i></span>
-                        </a>
-                        <div class="collapse" id="sidebarIcons">
-                            <ul class="side-nav-second-level">
-                                <li>
-                                    <a href="icons-dripicons.html">Dripicons</a>
-                                </li>
-                                <li>
-                                    <a href="icons-mdi.html">Material Design</a>
-                                </li>
-                                <li>
-                                    <a href="icons-unicons.html">Unicons</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarForms" aria-expanded="false"
-                            aria-controls="sidebarForms" class="side-nav-link">
-                            <i class="uil-document-layout-center"></i>
-                            <span> Forms </span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <div class="collapse" id="sidebarForms">
-                            <ul class="side-nav-second-level">
-                                <li>
-                                    <a href="form-elements.html">Basic Elements</a>
-                                </li>
-                                <li>
-                                    <a href="form-advanced.html">Form Advanced</a>
-                                </li>
-                                <li>
-                                    <a href="form-validation.html">Validation</a>
-                                </li>
-                                <li>
-                                    <a href="form-wizard.html">Wizard</a>
-                                </li>
-                                <li>
-                                    <a href="form-fileuploads.html">File Uploads</a>
-                                </li>
-                                <li>
-                                    <a href="form-editors.html">Editors</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-
                 </ul>
 
 
@@ -690,7 +509,7 @@
     <script src="{{ asset('assets/js/fullcalendar.js') }}"></script>
     <!-- bundle -->
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
-    <script src="{{  asset('assets/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.dataTables.min.js') }}"></script>
     <!-- third party js -->
     <script src="{{ asset('assets/js/vendor/jquery-jvectormap-1.2.2.min.js') }}"></script>
     <script src="{{ asset('assets/js/vendor/jquery-jvectormap-world-mill-en.js') }}"></script>
@@ -711,12 +530,12 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $('#studentexams').DataTable( {
-        "columnDefs": [ {
-            "visible": false,
-            "targets": -1
-        } ]
-    } );
+        $('#studentexams').DataTable({
+            "columnDefs": [{
+                "visible": false,
+                "targets": -1
+            }]
+        });
         $('#exampleModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget);
 
