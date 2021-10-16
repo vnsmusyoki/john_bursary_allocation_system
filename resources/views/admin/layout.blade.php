@@ -62,28 +62,13 @@
 
 
                     <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false"
+                        <a   href="{{ route('admin') }}" aria-expanded="false"
                             aria-controls="sidebarDashboards" class="side-nav-link">
                             <i class="bi bi-speedometer2"></i>
-                            <span class="badge bg-count-items float-end">4</span>
+
                             <span> Dashboards </span>
                         </a>
-                        <div class="collapse" id="sidebarDashboards">
-                            <ul class="side-nav-second-level">
-                                <li>
-                                    <a href="dashboard-analytics.html">Analytics</a>
-                                </li>
-                                <li>
-                                    <a href="dashboard-crm.html">CRM</a>
-                                </li>
-                                <li>
-                                    <a href="index.html">Ecommerce</a>
-                                </li>
-                                <li>
-                                    <a href="dashboard-projects.html">Projects</a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </li>
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarTeachers" aria-expanded="false"
@@ -96,28 +81,28 @@
                         <div class="collapse" id="sidebarTeachers">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href="apps-ecommerce-products.html">Products</a>
+                                    <a href=" ">Products</a>
                                 </li>
                                 <li>
-                                    <a href="apps-ecommerce-products-details.html">Products Details</a>
+                                    <a href=" ">Products Details</a>
                                 </li>
                                 <li>
-                                    <a href="apps-ecommerce-orders.html">Orders</a>
+                                    <a href=" ">Orders</a>
                                 </li>
                                 <li>
-                                    <a href="apps-ecommerce-orders-details.html">Order Details</a>
+                                    <a href=" ">Order Details</a>
                                 </li>
                                 <li>
-                                    <a href="apps-ecommerce-customers.html">Customers</a>
+                                    <a href=" ">Customers</a>
                                 </li>
                                 <li>
-                                    <a href="apps-ecommerce-shopping-cart.html">Shopping Cart</a>
+                                    <a href=" ">Shopping Cart</a>
                                 </li>
                                 <li>
-                                    <a href="apps-ecommerce-checkout.html">Checkout</a>
+                                    <a href=" ">Checkout</a>
                                 </li>
                                 <li>
-                                    <a href="apps-ecommerce-sellers.html">Sellers</a>
+                                    <a href=" ">Sellers</a>
                                 </li>
                             </ul>
                         </div>
@@ -133,13 +118,13 @@
                         <div class="collapse" id="sidebarStudents">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href="{{ route('managestudents.index') }}">All Students</a>
+                                    <a href=" ">All Students</a>
                                 </li>
                                 <li>
                                     <a href="">Student Details</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('managestudents.create') }}">Admission Form</a>
+                                    <a href=" ">Admission Form</a>
                                 </li>
                                 <li>
                                     <a href="">Student Body</a>
@@ -158,17 +143,17 @@
                         <div class="collapse" id="sidebarParents">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href="apps-projects-list.html">List</a>
+                                    <a href=" ">List</a>
                                 </li>
                                 <li>
-                                    <a href="apps-projects-details.html">Details</a>
+                                    <a href=" ">Details</a>
                                 </li>
                                 <li>
-                                    <a href="apps-projects-gantt.html">Gantt <span
+                                    <a href=" ">Gantt <span
                                             class="badge rounded-pill badge-light-lighten font-10 float-end">New</span></a>
                                 </li>
                                 <li>
-                                    <a href="apps-projects-add.html">Create Project <span
+                                    <a href=" ">Create Project <span
                                             class="badge rounded-pill badge-success-lighten font-10 float-end">New</span></a>
                                 </li>
                             </ul>
@@ -184,17 +169,17 @@
                         <div class="collapse" id="sidebaracc">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href="apps-projects-list.html">List</a>
+                                    <a href=" ">List</a>
                                 </li>
                                 <li>
-                                    <a href="apps-projects-details.html">Details</a>
+                                    <a href=" ">Details</a>
                                 </li>
                                 <li>
-                                    <a href="apps-projects-gantt.html">Gantt <span
+                                    <a href=" ">Gantt <span
                                             class="badge rounded-pill badge-light-lighten font-10 float-end">New</span></a>
                                 </li>
                                 <li>
-                                    <a href="apps-projects-add.html">Create Project <span
+                                    <a href=" ">Create Project <span
                                             class="badge rounded-pill badge-success-lighten font-10 float-end">New</span></a>
                                 </li>
                             </ul>
