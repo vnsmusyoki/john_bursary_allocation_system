@@ -20,19 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var string[]
      */
 
-    public function userguardian()
-    {
-        return $this->belongsTo(Guardian::class);
-    }
-    public function userstudent()
-    {
-        return $this->belongsTo(Student::class, 'users_id', 'id');
-    }
-    public function teacherstudent()
-    {
-        return $this->belongsTo(Teacher::class);
-    }
-
+ 
     protected $fillable = [
         'name',
         'email',

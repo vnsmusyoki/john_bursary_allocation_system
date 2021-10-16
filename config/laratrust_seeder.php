@@ -17,19 +17,16 @@ return [
             'payments' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'teacher' => [
+        'cdf' => [
             'users' => 'c,r,u,d',
             'profile' => 'r,u'
         ],
-        'clerk' => [
+        'school' => [
             'profile' => 'r,u',
         ],
-        'parent' => [
+        'student' => [
             'profile' => 'r,u',
-        ],
-        'students' => [
-            'profile' => 'r,u',
-        ],
+        ], 
         'role_name' => [
             'module_1_name' => 'c,r,u,d',
         ]
