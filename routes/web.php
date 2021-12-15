@@ -1,17 +1,11 @@
 <?php
 
-use App\Http\Controllers\admin\AdminCalendarController;
-use App\Http\Controllers\admin\ContentCOntroller;
-use App\Http\Controllers\admin\StudentsController;
-use App\Http\Controllers\clerk\FinanceController;
-use App\Http\Controllers\student\StudentAccountController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ 
 Route::get('/logoutchecked', function (Request $request) {
     $request->session()->flush();
     Auth::logout();
@@ -22,19 +16,11 @@ Route::get('/logoutchecked', function (Request $request) {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [PagesController::class, 'index']);
 
 Route::get('admin/dashboard', [ContentCOntroller::class, 'index'])->name('admin');
-Route::get('admin/fetch-all-events', [AdminCalendarController::class, 'dashboardfetchevents']);
 Route::prefix('admin')->group(function () {
-    Route::resource('managestudents', StudentsController::class);
-    Route::get('full-calendar', [AdminCalendarController::class, 'index']);
-    Route::get('all-events', [AdminCalendarController::class, 'allevents']);
-    Route::get('add-event', [AdminCalendarController::class, 'addevent']);
-    Route::get('add-event', [AdminCalendarController::class, 'addevent']);
-    Route::post('add_event', [AdminCalendarController::class, 'uploadaddevent']);
-    Route::get('student-admission/{student}/{slag}', [StudentsController::class, 'uploadfather']);
-    Route::get('upload-mother/{student}/{slag}', [StudentsController::class, 'uploadmother']);
-    Route::get('upload-guardian/{student}/{slag}', [StudentsController::class, 'uploadguardian']);
+
 });
 
 
