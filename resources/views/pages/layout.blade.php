@@ -259,7 +259,7 @@
 
         <div class="hero-slider-active owl-carousel">
 
-            <div class="singleSlide" data-black-overlay="3">
+            <div class="singleSlide" >
                 <div class="itemBg">
                     <img src="assets/images/slider/background-image-4.jpg" alt="">
                 </div>
@@ -279,7 +279,7 @@
                 <!-- Hero Content One End -->
             </div>
 
-            <div class="singleSlide" data-black-overlay="3">
+            <div class="singleSlide"  >
                 <div class="itemBg">
                     <img src="assets/images/slider/background-image-2.jpg" alt="">
                 </div>
@@ -299,7 +299,7 @@
                 <!-- Hero Content One End -->
             </div>
 
-            <div class="singleSlide" data-black-overlay="3">
+            <div class="singleSlide"  >
                 <div class="itemBg">
                     <img src="assets/images/slider/background-image-3.jpg" alt="">
                 </div>
@@ -333,7 +333,7 @@
 
                         <div class="coustom-col-3">
                             <!-- single-course-categories -->
-                            <div class="single-course-categories-two malachite wow fadeInBottom" data-wow-duration="0.4s">
+                            <div class="single-course-categories-two malachite wow fadeInBottom" >
                                 <div class="item-inner">
                                     <div class="cours-icon">
                                         <span class="coure-icon-inner">
@@ -352,7 +352,7 @@
 
                         <div class="coustom-col-3">
                             <!-- single-course-categories -->
-                            <div class="single-course-categories-two sunglow  wow fadeInBottom" data-wow-duration="0.8s">
+                            <div class="single-course-categories-two sunglow  wow fadeInBottom" >
                                 <div class="item-inner">
                                     <div class="cours-icon">
                                         <span class="coure-icon-inner">
@@ -372,7 +372,7 @@
 
                         <div class="coustom-col-3">
                             <!-- single-course-categories -->
-                            <div class="single-course-categories-two mariner  wow fadeInBottom" data-wow-duration="1.2s">
+                            <div class="single-course-categories-two mariner  wow fadeInBottom" >
                                 <div class="item-inner">
                                     <div class="cours-icon">
                                         <span class="coure-icon-inner">
@@ -391,7 +391,7 @@
 
                         <div class="coustom-col-3">
                             <!-- single-course-categories -->
-                            <div class="single-course-categories-two brilliantrose  wow fadeInBottom" data-wow-duration="1.6s">
+                            <div class="single-course-categories-two brilliantrose  wow fadeInBottom" >
                                 <div class="item-inner">
                                     <div class="cours-icon">
                                         <span class="coure-icon-inner">
@@ -491,7 +491,7 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <div class="provide-image text-end wow fadeInBottom" data-wow-duration="0.6s">
+                    <div class="provide-image text-end wow fadeInBottom" >
                         <img src="assets/images/about/porvide-01.png" alt="">
                     </div>
                 </div>
@@ -1059,7 +1059,7 @@
             </div>
         </div>
 
-        <div class="testimonial-two-wrap" data-secondary-overlay="8">
+        <div class="testimonial-two-wrap" >
 
                 <div class="testimonial-active owl-carousel">
                     <div class="col-lg-8 m-auto">
