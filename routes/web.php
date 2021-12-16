@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\cbk\CBKAccountController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
- 
+
 Route::get('/logoutchecked', function (Request $request) {
     $request->session()->flush();
     Auth::logout();
@@ -18,8 +19,8 @@ Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [PagesController::class, 'index']);
 
-Route::get('admin/dashboard', [ContentCOntroller::class, 'index'])->name('admin');
-Route::prefix('admin')->group(function () {
+Route::get('cbk/dashboard', [CBKAccountController::class, 'index'])->name('admin');
+Route::prefix('cbk')->group(function () {
 
 });
 
