@@ -8,11 +8,11 @@
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<meta name="description" content="Responsive Admin Template" />
 	<meta name="author" content="RedstarHospital" />
-	<title>Smart University | Bootstrap Responsive Admin Template</title>
+	<title>Welcome Back</title>
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
 	<!-- icons -->
-	<link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('backend/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="{{ asset('backend/assets/plugins/iconic/css/material-design-iconic-font.min.css') }}">
 	<!-- bootstrap -->
 	<link href="{{ asset('backend/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
 	<div class="limiter">
 		<div class="container-login100 page-background">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" autocomplete="off">
 					<span class="login100-form-logo">
 						<img alt="" src="{{ asset('backend/assets/img/logo-2.png') }}">
 					</span>
