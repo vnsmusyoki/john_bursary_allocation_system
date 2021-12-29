@@ -15,4 +15,7 @@ class StudentAccountController extends Controller
     public function index(){
         return view('students.dashboard');
     }
+    public function applybursary(){
+        return view('students.apply-bursary');
+    }
 }
