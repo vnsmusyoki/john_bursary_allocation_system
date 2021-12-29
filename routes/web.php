@@ -34,6 +34,8 @@ Route::get('student/dashboard', [StudentAccountController::class, 'index'])->nam
 Route::prefix('student')->group(function () {
     Route::get('feestatement', [StudentAccountController::class, 'feestatement']);
     Route::get('account-password', [StudentAccountController::class, 'accountpassword']);
+    Route::get('complete-profile', [StudentAccountController::class, 'completeprofile']);
+    Route::post('finish-account', [StudentAccountController::class, 'storeprofile']);
     Route::get('apply-bursary', [StudentAccountController::class, 'applybursary']);
 });
 

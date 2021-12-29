@@ -19,6 +19,7 @@
     <link href="{{ asset('backend/css/app-modern.min.css') }}" rel="stylesheet" type="text/css" id="light-style" />
     <link href="{{ asset('backend/css/app-modern-dark.min.css') }}" rel="stylesheet" type="text/css"
         id="dark-style" />
+    <link rel="stylesheet" href="{{ asset('main/main/css/toastr.min.css') }}">
 
 </head>
 
@@ -136,7 +137,7 @@
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('student/apply-bursary')}}" class="side-nav-link">
+                        <a href="{{ url('student/apply-bursary') }}" class="side-nav-link">
                             <i class="uil-calender"></i>
                             <span> Apply Bursary </span>
                         </a>
@@ -778,7 +779,7 @@
 
             <div class="content-page">
                 <div class="content">
-                  @yield('content')
+                    @yield('content')
                 </div>
                 <!-- End Content -->
 
@@ -891,7 +892,8 @@
     <!-- demo app -->
     <script src="{{ asset('backend/js/pages/demo.dashboard.js') }}"></script>
     <!-- end demo js-->
-
+    <script src="{{ asset('main/main/js/toastr.min.js') }}"></script>
+    {!! Toastr::message() !!}
 </body>
 
 </html>
