@@ -22,9 +22,11 @@ class CreateStudentsTable extends Migration
             $table->string('year_of_study');
             $table->string('county');
             $table->string('registration_number');
-            $table->string('course_id');
+            $table->bigInteger('course_id')->nullable()->unsigned();
             $table->string('constituency');
             $table->foreign('user_student_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('set null');
+            $table->foreign('school_id')->references('id')->on('schools')->onDelete('set null');
             $table->timestamps();
         });
     }
