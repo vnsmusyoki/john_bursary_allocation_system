@@ -24,7 +24,9 @@ class StudentAccountController extends Controller
 
             return redirect('student/complete-profile');
         } else {
-            return view('students.dashboard');
+            $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
+
+            return view('students.dashboard', compact('student'));
         }
     }
     public function completeprofile()

@@ -20,7 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var string[]
      */
 
- 
+
     protected $fillable = [
         'name',
         'email',
@@ -28,6 +28,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'slag'
 
     ];
+    public function userstudent(){
+        return $this->belongsTo(Student::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

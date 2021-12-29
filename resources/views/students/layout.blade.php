@@ -75,8 +75,15 @@
                     <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown"
                         id="topbar-userdrop" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                         <span class="account-user-avatar">
-                            <img src="{{ asset('backend/images/users/avatar-1.jpg') }}" alt="user-image"
-                                class="rounded-circle">
+
+
+                            @if (Auth::user()->picture == null)
+                                <img src="{{ asset('backend/images/users/avatar-1.jpg') }}" alt="user-image"
+                                    class="rounded-circle">
+                            @else
+                                <img src="{{ asset('storage/profiles/' . Auth()->user()->picture) }}"
+                                    class="rounded-circle">
+                            @endif
                         </span>
                         <span>
                             <span class="account-user-name">{{ Auth::user()->name }}</span>
@@ -119,8 +126,14 @@
 
                 <div class="leftbar-user">
                     <a href="javascript: void(0);">
-                        <img src="{{ asset('backend/images/users/avatar-1.jpg') }}" alt="user-image" height="42"
-                            class="rounded-circle shadow-sm">
+                        @if (Auth::user()->picture == null)
+                            <img src="{{ asset('backend/images/users/avatar-1.jpg') }}" alt="user-image" height="42"
+                                class="rounded-circle shadow-sm">
+                        @else
+                            <img src="{{ asset('storage/profiles/' . Auth()->user()->picture) }}"
+                                  style="height:70px;width:70px;border-radius:50%;">
+                        @endif
+
                         <span class="leftbar-user-name">{{ Auth::user()->name }}</span>
                     </a>
                 </div>
