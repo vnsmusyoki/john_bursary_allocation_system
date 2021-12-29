@@ -39,7 +39,7 @@
             <div class="page-header-inner ">
                 <!-- logo start -->
                 <div class="page-logo">
-                    <a href="index.html">
+                    <a href="{{ route('admin') }}">
 						<span class="logo-icon material-icons fa-rotate-45">school</span>
 						<span class="logo-default">Smart</span> </a>
                 </div>
@@ -76,18 +76,11 @@
                                 <li>
                                     <a class="deutsch"><img src="../assets/img/flags/de.png" alt=""> Deutsch</a>
                                 </li>
-                                <li>
-                                    <a class="ukrainian"><img src="../assets/img/flags/ua.png" alt=""> Українська</a>
-                                </li>
+                               
                                 <li>
                                     <a class="english"><img src="../assets/img/flags/gb.png" alt=""> English</a>
                                 </li>
-                                <li>
-                                    <a class="espana"><img src="../assets/img/flags/es.png" alt=""> España</a>
-                                </li>
-                                <li>
-                                    <a class="russian"><img src="../assets/img/flags/ru.png" alt=""> Русский</a>
-                                </li>
+
                             </ul>
                         </li>
                         <!-- end language menu -->

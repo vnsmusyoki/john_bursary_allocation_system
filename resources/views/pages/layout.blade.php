@@ -86,7 +86,7 @@
 
                         <!-- logo-area -->
                         <div class="logo-area">
-                            <a href="index.html"><img src="assets/images/logo/logo.png" alt=""></a>
+                            <a href="{{ url('/') }}"><img src="assets/images/logo/logo.png" alt=""></a>
                         </div><!--// logo-area -->
 
                     </div>
@@ -98,7 +98,7 @@
                             <div class="main-menu">
                                 <nav class="main-navigation">
                                     <ul>
-                                        <li class="active"><a href="index.html"> HOME</a>
+                                        <li class="active"><a href="{{ url('/') }}"> HOME</a>
                                             <ul class="sub-menu">
                                                 <li><a href="index.html">Home Page 1</a></li>
                                                 <li><a href="index-2.html">Home Page 2</a></li>
@@ -1483,7 +1483,7 @@
 
 </div>
 <!-- Main Wrapper End -->
-
+ 
 <!-- JS
 ============================================ -->
 
