@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\cbk\CBKAccountController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\student\StudentAccountController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;

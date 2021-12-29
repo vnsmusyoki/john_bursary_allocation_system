@@ -76,7 +76,7 @@
                                 <li>
                                     <a class="deutsch"><img src="../assets/img/flags/de.png" alt=""> Deutsch</a>
                                 </li>
-                               
+
                                 <li>
                                     <a class="english"><img src="../assets/img/flags/gb.png" alt=""> English</a>
                                 </li>
@@ -388,33 +388,14 @@
                                 </div>
                             </li>
                             <li class="nav-item start active open">
-                                <a href="#" class="nav-link nav-toggle">
+                                <a href="{{ route('admin') }}" class="nav-link nav-toggle">
 									<i class="material-icons">dashboard</i>
 									<span class="title">Dashboard</span>
 									<span class="selected"></span>
 									<span class="arrow open"></span>
-								</a>
-                                <ul class="sub-menu">
-                                    <li class="nav-item active">
-                                        <a href="index.html" class="nav-link ">
-											<span class="title">Dashboard 1</span>
-											<span class="selected"></span>
-										</a>
-                                    </li>
-                                    <li class="nav-item ">
-                                        <a href="dashboard2.html" class="nav-link ">
-											<span class="title">Dashboard 2</span>
-										</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="dashboard3.html" class="nav-link ">
-											<span class="title">Dashboard 3</span>
-										</a>
-                                    </li>
-                                </ul>
-                            </li>
+								</a>  </li>
                             <li class="nav-item">
-                                <a href="event.html" class="nav-link nav-toggle"> <i class="material-icons">event</i>
+                                <a href="{{ url('admin/all-applications')}}" class="nav-link nav-toggle"> <i class="material-icons">event</i>
 									<span class="title">Event Management</span>
 								</a>
                             </li>
