@@ -42,7 +42,8 @@
                                 <div class="form-floating mb-3">
 
                                     <input type="text" class="form-control" id="floatingInputGridss"
-                                        value="{{ old('guardian_full_names') }}" wire:model="guardian_full_names">
+                                        value="{{ old('guardian_full_names') }}" wire:model="guardian_full_names"
+                                        style="text-transform: capitalize;">
                                     <label for="floatingInputGridss">Guardian Full Names</label>
                                 </div>
                                 @error('guardian_full_names')
@@ -86,7 +87,7 @@
                                     <div class="col-md">
                                         <div class="form-floating">
                                             <select class="form-select" id="floatingSelectGrid"
-                                                aria-label="Floating label select example" name="gender">
+                                                aria-label="Floating label select example" wire:model="gender">
                                                 <option value="">Student Gender</option>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
@@ -127,12 +128,16 @@
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelect21" wire:model="student_category"
                                         aria-label="Floating label select example">
-                                        <option>Click to select</option>
+                                        <option value="">Click to select</option>
                                         <option value="KUCCPS">KUCCPS</option>
                                         <option value="SSP">SSP</option>
                                     </select>
                                     <label for="floatingSelect21">Indicate whether you are KUCCPS or SSP</label>
+                                    @error('student_category')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelect22"
                                         wire:model="student_helb_status" aria-label="Floating label select example">
@@ -141,17 +146,22 @@
                                         <option value="Yes">Yes</option>
                                     </select>
                                     <label for="floatingSelect22">Are You on HELB</label>
+                                    @error('student_helb_status')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <textarea class="form-control" placeholder="If No, Explain WHY"
                                         wire:model="student_helb_status_decision" id="floatingTextarea23"
                                         style="height: 100px">{{ old('student_helb_status_decision') }}</textarea>
-                                    <label for="floatingTextarea23">Comments</label>
+                                    <label for="floatingTextarea23">If No, Explain WHY</label>
+                                    @error('student_helb_status_decision')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelectbursary"
-                                        wire:model="financial_assistance" aria-label="Floating label select example"
-                                        multiple style="height: 200px">
+                                        wire:model="financial_assistance" aria-label="Floating label select example">
                                         <option>Click to select</option>
                                         <option value="High School Bursary">High School Bursary</option>
                                         <option value="Ministry of Education Bursary">Ministry of Education Bursary
@@ -165,9 +175,13 @@
                                         <option value="Children's Home or Orphanage Support">Children's Home or
                                             Orphanage
                                             Support</option>
+                                        <option value="Never Received">Never Received</option>
                                     </select>
                                     <label for="floatingSelectbursary">Tick Against financial assistance ever
                                         received.</label>
+                                    @error('financial_assistance')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
 
@@ -182,8 +196,12 @@
                                         <option value="Single Parent">Single Parent</option>
                                         <option value="Separated or Divorced Parent">Separated or Divorced Parent
                                         </option>
+                                        <option value="Married">Married</option>
                                     </select>
                                     <label for="floatingSelectfamily">Select Family Status</label>
+                                    @error('family_status')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelectspecialneeds"
@@ -193,6 +211,9 @@
                                         <option value="No">No</option>
                                     </select>
                                     <label for="floatingSelectspecialneeds">Do You have any special Needs?.</label>
+                                    @error('special_needs')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelectneedsdesc"
@@ -208,6 +229,9 @@
                                     <label for="floatingSelectneedsdesc">If Yes,please select accordingly and attach
                                         relevant
                                         documents.</label>
+                                    @error('special_needs_description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelectincomeloss"
@@ -218,6 +242,9 @@
                                     </select>
                                     <label for="floatingSelectincomeloss">has your Family experienced loss of
                                         income?.</label>
+                                    @error('family_income_loss')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelectlossdesc"
@@ -229,19 +256,22 @@
                                         <option value="Incapacitation">Incapacitation</option>
                                         <option value="Loss of Job">Loss of Job</option>
                                         <option value="Others">Others</option>
+                                        <option value="No Loss">No Loss</option>
                                     </select>
                                     <label for="floatingSelectlossdesc">If Yes,indicate appropriately.</label>
+                                    @error('family_income_loss_description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="number" min="1000" class="form-control" id="floatingPasswordamount"
                                         wire:model="amount_applying" value="{{ old('amount_applying') }}">
                                     <label for="floatingPasswordamount">Amount Applying for</label>
+                                    @error('amount_applying')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingPasswordcourse"
-                                        value="{{ $student->studentcourse->course_name }}">
-                                    <label for="floatingPasswordcourse">Course</label>
-                                </div>
+
 
                             </div>
 
@@ -263,9 +293,7 @@
                             Student Attachments
                         </a>
                     </li>
-
                 </ul> <!-- end nav-->
-
                 <div class="tab-content">
                     <div class="tab-pane show active" id="floating-preview">
                         <div class="row">

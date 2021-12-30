@@ -104,7 +104,8 @@
                         <p class="text-muted"><strong>Email :</strong> <span
                                 class="ms-2">{{ Auth::user()->email}}</span></p>
 
-                        <p class="text-muted"><strong>Home County :</strong> <span class="ms-2">{{ $student->county}}</span></p>
+                        <p class="text-muted"><strong>Home County :</strong> <span class="ms-2">{{ $student->studentcounty->county}}</span></p>
+                        <p class="text-muted"><strong>Constituency :</strong> <span class="ms-2">{{ $student->studentconstituency->constituency}}</span></p>
 
                         <p class="text-muted"><strong>Languages :</strong>
                             <span class="ms-2"> English, Kiswahili </span>
