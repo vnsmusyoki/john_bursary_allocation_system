@@ -86,7 +86,7 @@
             <!-- Personal-Information -->
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title mt-0 mb-3">Seller Information</h4>
+                    <h4 class="header-title mt-0 mb-3">Student Information</h4>
                     <p class="text-muted font-13">
                         Hye, I’m Michael Franklin residing in this beautiful world. I create websites
                         and mobile apps with great UX and UI design. I have done work with big companies
@@ -97,19 +97,17 @@
                     <hr />
 
                     <div class="text-start">
-                        <p class="text-muted"><strong>Full Name :</strong> <span class="ms-2">Michael A.
-                                Franklin</span></p>
+                        <p class="text-muted"><strong>Full Name :</strong> <span class="ms-2">{{ Auth::user()->name}}</span></p>
 
-                        <p class="text-muted"><strong>Mobile :</strong><span class="ms-2">(+12) 123 1234
-                                567</span></p>
+                        <p class="text-muted"><strong>Mobile :</strong><span class="ms-2">{{ $student->phone_number}}</span></p>
 
                         <p class="text-muted"><strong>Email :</strong> <span
-                                class="ms-2">coderthemes@gmail.com</span></p>
+                                class="ms-2">{{ Auth::user()->email}}</span></p>
 
-                        <p class="text-muted"><strong>Location :</strong> <span class="ms-2">USA</span></p>
+                        <p class="text-muted"><strong>Home County :</strong> <span class="ms-2">{{ $student->county}}</span></p>
 
                         <p class="text-muted"><strong>Languages :</strong>
-                            <span class="ms-2"> English, German, Spanish </span>
+                            <span class="ms-2"> English, Kiswahili </span>
                         </p>
                         <p class="text-muted mb-0" id="tooltip-container"><strong>Elsewhere :</strong>
                             <a class="d-inline-block ms-2 text-muted" data-bs-container="#tooltip-container"
@@ -132,7 +130,7 @@
             <div class="card text-white bg-info overflow-hidden">
                 <div class="card-body">
                     <div class="toll-free-box text-center">
-                        <h4> <i class="mdi mdi-deskphone"></i> Contact: 1-234-567-8901</h4>
+                        <h4> <i class="mdi mdi-deskphone"></i> Contact: {{ $student->phone_number}}</h4>
                     </div>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->

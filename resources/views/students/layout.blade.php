@@ -20,7 +20,7 @@
     <link href="{{ asset('backend/css/app-modern-dark.min.css') }}" rel="stylesheet" type="text/css"
         id="dark-style" />
     <link rel="stylesheet" href="{{ asset('main/main/css/toastr.min.css') }}">
-
+    @livewireStyles
 </head>
 
 <body class="loading" data-layout="detached"
@@ -131,7 +131,7 @@
                                 class="rounded-circle shadow-sm">
                         @else
                             <img src="{{ asset('storage/profiles/' . Auth()->user()->picture) }}"
-                                  style="height:70px;width:70px;border-radius:50%;">
+                                style="height:70px;width:70px;border-radius:50%;">
                         @endif
 
                         <span class="leftbar-user-name">{{ Auth::user()->name }}</span>
@@ -907,6 +907,7 @@
     <!-- end demo js-->
     <script src="{{ asset('main/main/js/toastr.min.js') }}"></script>
     {!! Toastr::message() !!}
+    @livewireScripts
 </body>
 
 </html>

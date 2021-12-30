@@ -75,6 +75,7 @@ class StudentAccountController extends Controller
     }
     public function applybursary()
     {
-        return view('students.apply-bursary');
+         $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
+        return view('students.apply-bursary', compact('student'));
     }
 }
