@@ -36,6 +36,7 @@ Route::prefix('student')->group(function () {
     Route::get('complete-profile', [StudentAccountController::class, 'completeprofile']);
     Route::post('finish-account', [StudentAccountController::class, 'storeprofile']);
     Route::get('apply-bursary', [StudentAccountController::class, 'applybursary']);
+    Route::get('bursary-applications', [StudentAccountController::class, 'bursaryapplications']);
 });
 
 

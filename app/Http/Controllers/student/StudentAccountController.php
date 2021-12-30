@@ -89,4 +89,10 @@ class StudentAccountController extends Controller
             return view('students.apply-bursary', compact('student'));
         }
     }
+    public function bursaryapplications(){
+
+        $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
+        $bursary = BursaryApplication::where('bursary_user_id', auth()->user()->id)->get();
+        return view('students.bursary-applications', compact('student','bursary'));
+    }
 }
