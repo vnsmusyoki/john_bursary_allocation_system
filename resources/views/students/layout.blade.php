@@ -37,14 +37,7 @@
         <div class="container-fluid">
 
             <!-- LOGO -->
-            <a href="{{ route('student') }}" class="topnav-logo">
-                <span class="topnav-logo-lg">
-                    <img src="{{ asset('backend/images/logo-light.png') }}" alt="" height="16">
-                </span>
-                <span class="topnav-logo-sm">
-                    <img src="{{ asset('backend/images/logo_sm.png') }}" alt="" height="16">
-                </span>
-            </a>
+            
 
             <ul class="list-unstyled topbar-menu float-end mb-0">
 
@@ -191,22 +184,27 @@
 
 
                     <li class="side-nav-item">
-                        <a href="{{ url('student/account-password') }}" class="side-nav-link">
+                        <a href="{{ url('student/avatar') }}" class="side-nav-link">
 
                             <span>Update Password </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('student/account-password') }}" class="side-nav-link">
+                        <a href="{{ url('student/avatar') }}" class="side-nav-link">
 
                             <span>General Profile </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('student/account-password') }}" class="side-nav-link">
 
-                            <span>Log Out </span>
+                        <a class="side-nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
                         </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </li>
 
 

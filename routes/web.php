@@ -41,6 +41,9 @@ Route::prefix('student')->group(function () {
     Route::get('allocated-bursary-applications', [StudentAccountController::class, 'allocatedbursaryapplications']);
     Route::get('denied-bursary-applications', [StudentAccountController::class, 'deniedbursaryapplications']);
     Route::get('avatar', [StudentAccountController::class, 'avatar']);
+    Route::post('update-password', [StudentAccountController::class, 'updatepassword']);
+    Route::post('update-email', [StudentAccountController::class, 'updateemail']);
+    Route::post('update-picture', [StudentAccountController::class, 'updateavatar']);
 });
 
 
