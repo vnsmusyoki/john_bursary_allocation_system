@@ -86,13 +86,15 @@
                                     <div class="col-lg-6">
 
                                         <div class="form-floating">
-                                            <select class="form-select" id="floatingSelect" name="home_county"
-                                                aria-label="Floating label select example">
-                                                <option value="">Select Home County</option>
-                                                <option value="Nairobi">Nairobi</option>
-                                                <option value="Meru">Meru</option>
-                                                <option value="Mombasa">Mombasa</option>
-                                            </select>
+                                            <select class="form-select" id="floatingInputGridcon"
+                                            name="home_county" aria-label="Floating label select example">
+                                            <option value="">Click to select</option>
+                                            @foreach ($counties as $county)
+                                                <option value="{{ $county->id }}">
+                                                    {{ $county->county }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                             <label for="floatingSelect">Home County</label>
                                         </div>
                                         @error('home_county')
@@ -113,11 +115,17 @@
                                         <div class="row g-2">
                                             <div class="col-md">
                                                 <div class="form-floating">
-                                                    <input type="text" class="form-control" id="floatingInputGrid"
-                                                        name="constituency" placeholder="Tigania West"
-                                                        value="{{ old('constituency') }}"
-                                                        style="text-transform: uppercase;">
-                                                    <label for="floatingInputGrid">Constituency</label>
+
+                                                    <select class="form-select" id="floatingInputGridcon"
+                                                        name="constituency" aria-label="Floating label select example">
+                                                        <option value="">Click to select</option>
+                                                        @foreach ($counties as $county)
+                                                            <option value="{{ $county->id }}">
+                                                                {{ $county->constituency }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                    <label for="floatingInputGridcon">Constituency</label>
                                                 </div>
                                                 @error('constituency')
                                                     <span class="text-danger">{{ $message }}</span>

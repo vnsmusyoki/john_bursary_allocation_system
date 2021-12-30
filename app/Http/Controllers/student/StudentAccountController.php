@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\student;
 
 use App\Http\Controllers\Controller;
+use App\Models\CountyConstituency;
 use App\Models\Course;
 use App\Models\School;
 use App\Models\Student;
@@ -33,7 +34,8 @@ class StudentAccountController extends Controller
     {
         $courses = Course::all();
         $schools = School::all();
-        return view('students.complete-profile', compact(['courses', 'schools']));
+        $counties = CountyConstituency::all();
+        return view('students.complete-profile', compact(['courses', 'schools', 'counties']));
     }
     public function storeprofile(Request $request)
     {
@@ -43,7 +45,7 @@ class StudentAccountController extends Controller
             'year_of_study' => 'required',
             'home_county' => 'required',
             'registration_number' => 'required|string|min:13|max:13',
-            'constituency' => 'required|string',
+            'constituency' => 'required',
             'course_of_study' => 'required',
             'school' => 'required',
             'picture' => 'required|image| mimes:png,jpeg, jpg|max:10080'
@@ -55,10 +57,10 @@ class StudentAccountController extends Controller
         $student->phone_number = $request->input('phone_number');
         $student->id_number = $request->input('id_number');
         $student->year_of_study = $request->input('year_of_study');
-        $student->county = $request->input('home_county');
+        $student->county_id = $request->input('home_county');
         $student->registration_number = $request->input('registration_number');
         $student->course_id = $request->input('course_of_study');
-        $student->constituency = $request->input('constituency');
+        $student->constituency_id = $request->input('constituency');
         $student->save();
 
         $updateuser = User::findOrFail(auth()->user()->id);
