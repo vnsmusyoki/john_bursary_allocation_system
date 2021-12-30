@@ -124,6 +124,7 @@ class BursaryApplication extends Component
         $bursary->family_income_loss_description = $this->family_income_loss_description;
         $bursary->family_income_loss = $this->family_income_loss;
         $bursary->application_support = $this->application_support;
+        $bursary->amount_applying = $this->amount_applying;
         $bursary->bursary_status = "applied";
 
         $fileNameWithExt = $this->fee_structure->getClientOriginalName();

@@ -40,6 +40,8 @@ class CreateBursaryApplicationsTable extends Migration
             $table->string('relevant_attachment')->nullable();
             $table->longText('application_support');
             $table->string('bursary_status');
+            $table->string('amount_applying');
+            $table->string('bursary_allocated_amount')->nullable();
             $table->foreign('bursary_student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreign('bursary_user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('bursary_school_id')->references('id')->on('schools')->onDelete('set null');

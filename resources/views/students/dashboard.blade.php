@@ -87,25 +87,24 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="header-title mt-0 mb-3">Student Information</h4>
-                    <p class="text-muted font-13">
-                        Hye, I’m Michael Franklin residing in this beautiful world. I create websites
-                        and mobile apps with great UX and UI design. I have done work with big companies
-                        like Nokia, Google and Yahoo. Meet me or Contact me for any queries. One Extra
-                        line for filling space. Fill as many you want.
-                    </p>
+
 
                     <hr />
 
                     <div class="text-start">
-                        <p class="text-muted"><strong>Full Name :</strong> <span class="ms-2">{{ Auth::user()->name}}</span></p>
+                        <p class="text-muted"><strong>Full Name :</strong> <span
+                                class="ms-2">{{ Auth::user()->name }}</span></p>
 
-                        <p class="text-muted"><strong>Mobile :</strong><span class="ms-2">{{ $student->phone_number}}</span></p>
+                        <p class="text-muted"><strong>Mobile :</strong><span
+                                class="ms-2">{{ $student->phone_number }}</span></p>
 
                         <p class="text-muted"><strong>Email :</strong> <span
-                                class="ms-2">{{ Auth::user()->email}}</span></p>
+                                class="ms-2">{{ Auth::user()->email }}</span></p>
 
-                        <p class="text-muted"><strong>Home County :</strong> <span class="ms-2">{{ $student->studentcounty->county}}</span></p>
-                        <p class="text-muted"><strong>Constituency :</strong> <span class="ms-2">{{ $student->studentconstituency->constituency}}</span></p>
+                        <p class="text-muted"><strong>Home County :</strong> <span
+                                class="ms-2">{{ $student->studentcounty->county }}</span></p>
+                        <p class="text-muted"><strong>Constituency :</strong> <span
+                                class="ms-2">{{ $student->studentconstituency->constituency }}</span></p>
 
                         <p class="text-muted"><strong>Languages :</strong>
                             <span class="ms-2"> English, Kiswahili </span>
@@ -131,7 +130,7 @@
             <div class="card text-white bg-info overflow-hidden">
                 <div class="card-body">
                     <div class="toll-free-box text-center">
-                        <h4> <i class="mdi mdi-deskphone"></i> Contact: {{ $student->phone_number}}</h4>
+                        <h4> <i class="mdi mdi-deskphone"></i> Contact: {{ $student->phone_number }}</h4>
                     </div>
                 </div> <!-- end card-body-->
             </div> <!-- end card-->
@@ -143,100 +142,110 @@
         </div> <!-- end col-->
 
         <div class="col-xl-8">
+            @if ($bursary->count() >= 1)
+                @foreach ($bursary as $application)
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="dripicons-basket float-end text-muted"></i>
+                                    <h2 class="m-b-20">{{ $application->bursary_id }}</h2>
+                                    <span class="badge bg-primary"></span> <span class="text-muted">Track
+                                        Application</span>
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
 
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="card tilebox-one">
-                        <div class="card-body">
-                            <i class="dripicons-basket float-end text-muted"></i>
-                            <h6 class="text-muted text-uppercase mt-0">Orders</h6>
-                            <h2 class="m-b-20">1,587</h2>
-                            <span class="badge bg-primary"> +11% </span> <span class="text-muted">From previous
-                                period</span>
-                        </div> <!-- end card-body-->
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="dripicons-box float-end text-muted"></i>
+                                    <h2 class="m-b-20"><span>{{ $application->amount_applying }}</span>
+                                    </h2>
+                                    <span class="badge bg-danger"> </span> <span class="text-muted">Amount
+                                        Applied</span>
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
+
+                        <div class="col-sm-4">
+                            <div class="card tilebox-one">
+                                <div class="card-body">
+                                    <i class="dripicons-jewel float-end text-muted"></i>
+                                    <h2 class="m-b-20">- {{ $application->bursary_allocated_amount }}-</h2>
+                                    <span class="badge bg-primary"> </span> <span class="text-muted">Amount
+                                        Allocated</span>
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!--end card-->
+                        </div><!-- end col -->
+
                     </div>
-                    <!--end card-->
-                </div><!-- end col -->
+                    <!-- end row -->
+                @endforeach
+            @endif
 
-                <div class="col-sm-4">
-                    <div class="card tilebox-one">
-                        <div class="card-body">
-                            <i class="dripicons-box float-end text-muted"></i>
-                            <h6 class="text-muted text-uppercase mt-0">Revenue</h6>
-                            <h2 class="m-b-20">$<span>46,782</span></h2>
-                            <span class="badge bg-danger"> -29% </span> <span class="text-muted">From previous
-                                period</span>
-                        </div> <!-- end card-body-->
-                    </div>
-                    <!--end card-->
-                </div><!-- end col -->
+            @if ($bursary->count() >= 1)
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title mb-3">My Application</h4>
 
-                <div class="col-sm-4">
-                    <div class="card tilebox-one">
-                        <div class="card-body">
-                            <i class="dripicons-jewel float-end text-muted"></i>
-                            <h6 class="text-muted text-uppercase mt-0">Product Sold</h6>
-                            <h2 class="m-b-20">1,890</h2>
-                            <span class="badge bg-primary"> +89% </span> <span class="text-muted">Last year</span>
-                        </div> <!-- end card-body-->
-                    </div>
-                    <!--end card-->
-                </div><!-- end col -->
+                        <div class="table-responsive">
+                            <table class="table table-hover table-centered mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Track ID</th>
+                                        <th>Date Applied</th>
+                                        <th>Current Status</th>
+                                        <th>Amount Applied</th>
+                                        <th>Amount Allocated</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($bursary as $application)
+                                        <tr>
+                                            <td>{{ $application->bursary_id }}</td>
+                                            <td>{{ $application->created_at->addHours(3)->format('l,d/m/Y, h:i:s a') }}
+                                            </td>
+                                            <td>
+                                                @if ($application->bursary_status == 'applied')
+                                                    <span class="badge bg-primary">Recently Applied</span>
+                                                @elseif ($application->bursary_status == 'school')
+                                                    <span class="badge bg-warning">School Processing</span>
+                                                @elseif ($application->bursary_status == 'cdf')
+                                                    <span class="badge bg-warning">CDF Reviewing</span>
 
-            </div>
-            <!-- end row -->
+                                                @elseif ($application->bursary_status == 'allocated')
+                                                    <span class="badge bg-success">Allocated</span>
+                                                @else
+                                                    <span class="badge bg-danger">Denied</span>
+                                                @endif
+
+                                            </td>
+                                            <td>Kshs. {{ $application->amount_applying }}</td>
+                                            <td>
+
+                                                @if ($application->bursary_status == 'allocated')
+                                                    <span class="badge bg-success">Kshs.
+                                                        {{ $bursary->bursary_allocated_amount }}</span>
+                                                @else
+                                                    <span class="badge bg-danger">_____</span>
+                                                @endif
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
 
 
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="header-title mb-3">My Products</h4>
+                                </tbody>
+                            </table>
+                        </div> <!-- end table responsive-->
+                    </div> <!-- end col-->
+                </div> <!-- end row-->
+            @endif
 
-                    <div class="table-responsive">
-                        <table class="table table-hover table-centered mb-0">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Stock</th>
-                                    <th>Amount</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>ASOS Ridley High Waist</td>
-                                    <td>$79.49</td>
-                                    <td><span class="badge bg-primary">82 Pcs</span></td>
-                                    <td>$6,518.18</td>
-                                </tr>
-                                <tr>
-                                    <td>Marco Lightweight Shirt</td>
-                                    <td>$128.50</td>
-                                    <td><span class="badge bg-primary">37 Pcs</span></td>
-                                    <td>$4,754.50</td>
-                                </tr>
-                                <tr>
-                                    <td>Half Sleeve Shirt</td>
-                                    <td>$39.99</td>
-                                    <td><span class="badge bg-primary">64 Pcs</span></td>
-                                    <td>$2,559.36</td>
-                                </tr>
-                                <tr>
-                                    <td>Lightweight Jacket</td>
-                                    <td>$20.00</td>
-                                    <td><span class="badge bg-primary">184 Pcs</span></td>
-                                    <td>$3,680.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Marco Shoes</td>
-                                    <td>$28.49</td>
-                                    <td><span class="badge bg-primary">69 Pcs</span></td>
-                                    <td>$1,965.81</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div> <!-- end table responsive-->
-                </div> <!-- end col-->
-            </div> <!-- end row-->
 
         </div>
         <!-- end col -->

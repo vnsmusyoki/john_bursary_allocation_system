@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\student;
 
 use App\Http\Controllers\Controller;
+use App\Models\BursaryApplication;
 use App\Models\CountyConstituency;
 use App\Models\Course;
 use App\Models\School;
@@ -26,8 +27,8 @@ class StudentAccountController extends Controller
             return redirect('student/complete-profile');
         } else {
             $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
-
-            return view('students.dashboard', compact('student'));
+            $bursary = BursaryApplication::where('bursary_user_id', auth()->user()->id)->get();
+            return view('students.dashboard', compact('student','bursary'));
         }
     }
     public function completeprofile()
@@ -77,7 +78,15 @@ class StudentAccountController extends Controller
     }
     public function applybursary()
     {
-         $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
-        return view('students.apply-bursary', compact('student'));
+        $bursary = BursaryApplication::where('bursary_user_id', auth()->user()->id)->get();
+        if ($bursary->count() >= 1) {
+            Toastr::error('You have an active application.', 'Success', ["positionClass" => "toast-top-right"]);
+            return redirect()->route('student');
+        } else {
+
+
+            $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
+            return view('students.apply-bursary', compact('student'));
+        }
     }
 }

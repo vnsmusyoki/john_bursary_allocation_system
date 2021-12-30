@@ -22,7 +22,6 @@ Route::get('/', [PagesController::class, 'index']);
 
 Route::get('cbk/dashboard', [CBKAccountController::class, 'index'])->name('admin');
 Route::prefix('cbk')->group(function () {
-
 });
 
 
