@@ -256,7 +256,6 @@
                                         <option value="Incapacitation">Incapacitation</option>
                                         <option value="Loss of Job">Loss of Job</option>
                                         <option value="Others">Others</option>
-                                        <option value="No Loss">No Loss</option>
                                     </select>
                                     <label for="floatingSelectlossdesc">If Yes,indicate appropriately.</label>
                                     @error('family_income_loss_description')
@@ -303,12 +302,18 @@
                                         wire:model="fee_structure" value="{{ old('fee_structure') }}">
                                     <label for="floatingPasswordattachfee">Fee structure.. Attach pdf documents
                                         only</label>
+                                        @error('fee_structure')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="file" class="form-control" id="floatingPasswordattachgrade"
                                         wire:model="school_perfomance" value="{{ old('school_perfomance') }}">
                                     <label for="floatingPasswordattachgrade">Last School Perfomance..attach pdf
                                         only</label>
+                                        @error('school_perfomance')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -318,12 +323,18 @@
                                         value="{{ old('special_needs_attachment') }}">
                                     <label for="floatingPasswordattachpdf">Attach special needs pdf document.
                                         <small>(Optional)</small></label>
+                                        @error('special_needs_attachment')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input type="file" class="form-control" id="floatingPasswordattachoptional"
                                         wire:model="relevant_attachment" value="{{ old('relevant_attachment') }}">
                                     <label for="floatingPasswordattachoptional">Any other relevant attachment.
                                         <small>(Optional)</small></label>
+                                        @error('relevant_attachment')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
 
 
@@ -336,6 +347,9 @@
                                     <label for="floatingTextareasupport">Use the space below to provide any other
                                         information that
                                         may support your application. </label>
+                                        @error('application_support')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

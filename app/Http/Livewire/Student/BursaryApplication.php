@@ -94,15 +94,71 @@ class BursaryApplication extends Component
             $this->validate([
                 'school_perfomance' => 'required|mimes:pdf, doc,docx, PDF|max:10080',
                 'fee_structure' => 'required|mimes:pdf, doc,docx, PDF|max:10080',
-                'special_needs_attachment' => 'required_if:special_needs,Yes|mimes:pdf, doc,docx, PDF|max:10080',
+                'special_needs_attachment' => 'nullable|mimes:pdf, doc,docx, PDF|max:10080',
                 'relevant_attachment' => 'nullable|mimes:pdf, doc,docx, PDF|max:10080',
                 'application_support' => 'required|string',
             ]);
         }
-
+        $bursarylength = 6;
+        $str = "1234567890";
+        $bursaryid = substr(str_shuffle($str), 0, $bursarylength);
+        $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
         $bursary = new ModelsBursaryApplication;
-        $bursary->
-        Toastr::warning('Teacher Details Added Successfully.', 'Success', ["positionClass" => "toast-top-right"]);
-        return redirect('admin/all-teachers/');
+        $bursary->bursary_id = $bursaryid;
+        $bursary->bursary_student_id = $student->id;
+        $bursary->bursary_user_id = auth()->user()->id;
+        $bursary->bursary_school_id = $student->school_id;
+        $bursary->bursary_course_id = $student->course_id;
+        $bursary->bursary_constituency_id = $student->constituency_id;
+        $bursary->bursary_county_id = $student->county_id;
+        $bursary->guardian_full_names = $this->guardian_full_names;
+        $bursary->gender = $this->gender;
+        $bursary->guardian_phone_number = $this->guardian_phone_number;
+        $bursary->student_category = $this->student_category;
+        $bursary->student_helb_status = $this->student_helb_status;
+        $bursary->student_helb_status_decision = $this->student_helb_status_decision;
+        $bursary->financial_assistance = $this->financial_assistance;
+        $bursary->family_status = $this->family_status;
+        $bursary->special_needs = $this->special_needs;
+        $bursary->special_needs_description = $this->special_needs_description;
+        $bursary->family_income_loss_description = $this->family_income_loss_description;
+        $bursary->family_income_loss = $this->family_income_loss;
+        $bursary->application_support = $this->application_support;
+        $bursary->bursary_status = "applied";
+
+        $fileNameWithExt = $this->fee_structure->getClientOriginalName();
+        $fileName =  pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $Extension = $this->fee_structure->getClientOriginalExtension();
+        $filenameToStore = $fileName . '-' . time() . '.' . $Extension;
+        $path = $this->fee_structure->storeAs('feestructure', $filenameToStore, 'public');
+        $bursary->fee_structure = $filenameToStore;
+
+        if ($this->special_needs_attachment !== null) {
+            $fileNameWithExt = $this->special_needs_attachment->getClientOriginalName();
+            $fileName =  pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $Extension = $this->special_needs_attachment->getClientOriginalExtension();
+            $filenameToStore = $fileName . '-' . time() . '.' . $Extension;
+            $path = $this->special_needs_attachment->storeAs('specialneeds', $filenameToStore, 'public');
+            $bursary->special_needs_attachment = $filenameToStore;
+        }
+        $fileNameWithExt = $this->school_perfomance->getClientOriginalName();
+        $fileName =  pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $Extension = $this->school_perfomance->getClientOriginalExtension();
+        $filenameToStore = $fileName . '-' . time() . '.' . $Extension;
+        $path = $this->school_perfomance->storeAs('schoolperfomance', $filenameToStore, 'public');
+        $bursary->school_perfomance = $filenameToStore;
+
+        if ($this->relevant_attachment !== null) {
+            $fileNameWithExt = $this->relevant_attachment->getClientOriginalName();
+            $fileName =  pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $Extension = $this->relevant_attachment->getClientOriginalExtension();
+            $filenameToStore = $fileName . '-' . time() . '.' . $Extension;
+            $path = $this->relevant_attachment->storeAs('additionaldocuments', $filenameToStore, 'public');
+            $bursary->relevant_attachment = $filenameToStore;
+        }
+
+        $bursary->save();
+        Toastr::warning('Your Application submited successfully.', 'Success', ["positionClass" => "toast-top-right"]);
+        return redirect()->route('student');
     }
 }

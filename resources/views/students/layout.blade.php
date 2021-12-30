@@ -19,7 +19,7 @@
     <link href="{{ asset('backend/css/app-modern.min.css') }}" rel="stylesheet" type="text/css" id="light-style" />
     <link href="{{ asset('backend/css/app-modern-dark.min.css') }}" rel="stylesheet" type="text/css"
         id="dark-style" />
-    <link rel="stylesheet" href="{{ asset('main/main/css/toastr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assetscss/toastr.min.css') }}">
     @livewireStyles
 </head>
 
@@ -905,7 +905,7 @@
     <!-- demo app -->
     <script src="{{ asset('backend/js/pages/demo.dashboard.js') }}"></script>
     <!-- end demo js-->
-    <script src="{{ asset('main/main/js/toastr.min.js') }}"></script>
+    <script src="{{ asset('assets/js/toastr.min.js') }}"></script>
     {!! Toastr::message() !!}
     @livewireScripts
 </body>
