@@ -147,12 +147,7 @@
                     </li>
 
 
-                    <li class="side-nav-item">
-                        <a href="{{ url('school/school-comments') }}" class="side-nav-link">
-
-                            <span> School  Comments </span>
-                        </a>
-                    </li>
+                   
 
                     <li class="side-nav-item">
                         <a href="{{ url('school/bursary-applications') }}" class="side-nav-link">
