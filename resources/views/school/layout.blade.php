@@ -157,19 +157,19 @@
                     <li class="side-nav-item">
                         <a href="{{ url('school/bursary-applications') }}" class="side-nav-link">
 
-                            <span> Bursary Applications </span>
+                            <span> New Bursary Applications </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('school/allocated-bursary-applications') }}" class="side-nav-link">
+                        <a href="{{ url('school/submited-applications') }}" class="side-nav-link">
 
-                            <span> Allocated Applications </span>
+                            <span> Submited Applications </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('school/denied-bursary-applications') }}" class="side-nav-link">
+                        <a href="{{ url('school/denied-applications') }}" class="side-nav-link">
 
-                            <span> Denied Applications </span>
+                            <span> Cancelled Applications </span>
                         </a>
                     </li>
 

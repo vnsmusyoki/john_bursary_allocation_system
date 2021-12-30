@@ -25,8 +25,8 @@
                     <p class="text-muted font-14">
                         Personal Data
                     </p>
-
                     <ul class="nav nav-tabs nav-bordered mb-3">
+
                         <li class="nav-item">
                             <a href="#buttons-table-first" data-bs-toggle="tab" aria-expanded="true"
                                 class="nav-link active">
@@ -63,9 +63,17 @@
                                 School Data
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="#scroll-horizontal-data" data-bs-toggle="tab" aria-expanded="true"
+                                class="nav-link">
+                                School Action
+                            </a>
+                        </li>
+
 
                     </ul> <!-- end nav-->
                     <div class="tab-content">
+
                         <div class="tab-pane show active" id="scroll-horizontal-first">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -145,8 +153,7 @@
                                     <div class="form-floating mb-3">
 
                                         <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->family_status }}"
-                                            style="text-transform: capitalize;">
+                                            value="{{ $bursary->family_status }}" style="text-transform: capitalize;">
                                         <label for="floatingInputGridss">Family Status</label>
                                     </div>
                                 </div>
@@ -167,8 +174,7 @@
                                     <div class="form-floating mb-3">
 
                                         <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->special_needs }}"
-                                            style="text-transform: capitalize;">
+                                            value="{{ $bursary->special_needs }}" style="text-transform: capitalize;">
                                         <label for="floatingInputGridss">Special Needs</label>
                                     </div>
                                 </div>
@@ -209,7 +215,8 @@
                                     <div class="form-floating mb-3">
 
 
-                                            <textarea name="" id="" cols="30" rows="10" class="form-control">{{ $bursary->application_support }}</textarea>
+                                        <textarea name="" id="" cols="30" rows="10"
+                                            class="form-control">{{ $bursary->application_support }}</textarea>
                                         <label for="floatingInputGridss">Additional Information</label>
                                     </div>
                                 </div>
@@ -222,8 +229,7 @@
                                     <div class="form-floating mb-3">
 
                                         <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->amount_applying }}"
-                                            style="text-transform: capitalize;">
+                                            value="{{ $bursary->amount_applying }}" style="text-transform: capitalize;">
                                         <label for="floatingInputGridss">Amount Applied</label>
                                     </div>
                                 </div>
@@ -240,14 +246,39 @@
                                     <div class="form-floating mb-3">
 
                                         <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->bursary_status }}"
-                                            style="text-transform: capitalize;">
+                                            value="{{ $bursary->bursary_status }}" style="text-transform: capitalize;">
                                         <label for="floatingInputGridss">Bursary Status</label>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
+                        <div class="tab-pane show" id="scroll-horizontal-data">
+                            @if ($bursary->school_status == null)
+                                <form action="{{ url('school/school-update-application/' . $bursary->id) }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
+                                    <div class="col-lg-4">
+                                        <div class="form-floating mb-3">
+
+                                            <select name="school_status" id="" class="form-control" required>
+                                                <option value="">Select</option>
+                                                <option value="school">Submit To CDF</option>
+                                                <option value="Return">Return to Student</option>
+                                            </select>
+                                            <label for="floatingInputGridss">Sschool Response</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">Submit Data</button>
+                                    </div>
+                                </form>
+                            @elseif($bursary->school_status == "school")
+                                <button class="btn btn-success">Verified ,Student Notified & forwaded for Bursary allocation</button>
+                            @else
+                                <button class="btn btn-danget">Denied ,Student Notified </button>
+                            @endif
+
+                        </div>
+
 
                     </div> <!-- end tab-content-->
 

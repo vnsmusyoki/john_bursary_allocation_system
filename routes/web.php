@@ -44,15 +44,22 @@ Route::prefix('student')->group(function () {
     Route::get('avatar', [StudentAccountController::class, 'avatar']);
     Route::post('update-password', [StudentAccountController::class, 'updatepassword']);
     Route::post('update-email', [StudentAccountController::class, 'updateemail']);
-    Route::post('update-picture', [StudentAccountController::class, 'updateavatar']);
+    Route::post('update-avatar', [StudentAccountController::class, 'updateavatar']);
 });
 
 
 // CLERK LINKS
 Route::get('school/dashboard', [SchoolAccountController::class, 'index'])->name('school');
-Route::prefix('school')->group(function() {
-    Route::get('school-comments', [SchoolAccountController::class, 'schoolcomments']); 
-    Route::get('bursary-applications', [SchoolAccountController::class, 'bursaryapplications']); 
-    Route::get('application-details/{id}', [SchoolAccountController::class, 'applicationdetails']); 
+Route::prefix('school')->group(function () {
+    Route::get('school-comments', [SchoolAccountController::class, 'schoolcomments']);
+    Route::get('bursary-applications', [SchoolAccountController::class, 'bursaryapplications']);
+    Route::get('submited-applications', [SchoolAccountController::class, 'submitedbursaryapplications']);
+    Route::get('denied-applications', [SchoolAccountController::class, 'deniedbursaryapplications']);
+    Route::get('account-security', [SchoolAccountController::class, 'accountsecurity']);
+    Route::get('application-details/{id}', [SchoolAccountController::class, 'applicationdetails']);
+    Route::patch('school-update-application/{id}', [SchoolAccountController::class, 'schoolupdateapplication']);
+    Route::post('update-password', [SchoolAccountController::class, 'updatepassword']);
+    Route::post('update-email', [SchoolAccountController::class, 'updateemail']);
+    Route::post('update-avatar', [SchoolAccountController::class, 'updateavatar']);
 });
 // dd
