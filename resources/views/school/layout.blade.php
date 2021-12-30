@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Student | @yield('title')</title>
+    <title>School | @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -42,11 +42,8 @@
             <ul class="list-unstyled topbar-menu float-end mb-0">
 
                 <li class="dropdown notification-list d-xl-none">
-                    <button class="btn btn-primary">Student Dashboard</button>
+                    <button class="btn btn-primary">School Dashboard</button>
                 </li>
-
-
-
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"
                         id="topbar-notifydrop" role="button" aria-haspopup="true" aria-expanded="false">
@@ -86,7 +83,7 @@
                         </span>
                         <span>
                             <span class="account-user-name">{{ Auth::user()->name }}</span>
-                            <span class="account-position">Student</span>
+                            <span class="account-position">School</span>
                         </span>
                     </a>
 
@@ -105,7 +102,7 @@
                     <div class="input-group">
 
 
-                        <button class="input-group-text btn-primary">Student Dashboard</button>
+                        <button class="input-group-text btn-primary">School Dashboard</button>
                     </div>
                 </form>
 
@@ -143,32 +140,34 @@
                     <li class="side-nav-title side-nav-item">Navigation</li>
 
                     <li class="side-nav-item">
-                        <a href="{{ route('student') }}" class="side-nav-link">
+                        <a href="{{ route('school') }}" class="side-nav-link">
 
                             <span> Dashboard </span>
                         </a>
                     </li>
-                    <li class="side-nav-item">
-                        <a href="{{ url('student/apply-bursary') }}" class="side-nav-link">
 
-                            <span> Apply Bursary </span>
+
+                    <li class="side-nav-item">
+                        <a href="{{ url('school/school-comments') }}" class="side-nav-link">
+
+                            <span> School  Comments </span>
                         </a>
                     </li>
 
                     <li class="side-nav-item">
-                        <a href="{{ url('student/bursary-applications') }}" class="side-nav-link">
+                        <a href="{{ url('school/bursary-applications') }}" class="side-nav-link">
 
                             <span> Bursary Applications </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('student/allocated-bursary-applications') }}" class="side-nav-link">
+                        <a href="{{ url('school/allocated-bursary-applications') }}" class="side-nav-link">
 
                             <span> Allocated Applications </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('student/denied-bursary-applications') }}" class="side-nav-link">
+                        <a href="{{ url('school/denied-bursary-applications') }}" class="side-nav-link">
 
                             <span> Denied Applications </span>
                         </a>
@@ -176,25 +175,14 @@
 
 
                     <li class="side-nav-item">
-                        <a href="{{ url('student/avatar') }}" class="side-nav-link">
+                        <a href="{{ url('school/account-security') }}" class="side-nav-link">
 
-                            <span> Update Avatar </span>
+                            <span> Account Security </span>
                         </a>
                     </li>
 
 
-                    <li class="side-nav-item">
-                        <a href="{{ url('student/avatar') }}" class="side-nav-link">
 
-                            <span>Update Password </span>
-                        </a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a href="{{ url('student/avatar') }}" class="side-nav-link">
-
-                            <span>General Profile </span>
-                        </a>
-                    </li>
                     <li class="side-nav-item">
 
                         <a class="side-nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -256,7 +244,6 @@
     <!-- END Container -->
 
 
- 
 
     <div class="rightbar-overlay"></div>
     <!-- /End-bar -->

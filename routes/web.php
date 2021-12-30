@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\cbk\CBKAccountController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\school\SchoolAccountController;
 use App\Http\Controllers\student\StudentAccountController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,4 +49,8 @@ Route::prefix('student')->group(function () {
 
 
 // CLERK LINKS
-Route::get('finance/dashboard', [FinanceController::class, 'index'])->name('clerk');
+Route::get('school/dashboard', [SchoolAccountController::class, 'index'])->name('school');
+Route::prefix('school')->group(function() {
+    Route::get('school-comments', [SchoolAccountController::class, 'schoolcomments']);
+});
+// dd

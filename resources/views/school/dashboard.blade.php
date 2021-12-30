@@ -1,5 +1,5 @@
-@extends('finance.layout')
-@section('title', 'Main Clerk Dashboard')
+@extends('school.layout')
+@section('title', 'Main School Dashboard')
 @section('content')
 
     <!-- start page title -->
