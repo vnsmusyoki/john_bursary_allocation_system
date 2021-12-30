@@ -21,6 +21,7 @@ class CreateBursaryApplicationsTable extends Migration
             $table->bigInteger('bursary_school_id')->nullable()->unsigned();
             $table->bigInteger('bursary_course_id')->nullable()->unsigned();
             $table->bigInteger('bursary_constituency_id')->nullable()->unsigned();
+            $table->bigInteger('bursary_county_id')->nullable()->unsigned();
             $table->string('guardian_full_names');
             $table->string('gender');
             $table->string('guardian_phone_number');
@@ -42,6 +43,8 @@ class CreateBursaryApplicationsTable extends Migration
             $table->foreign('bursary_user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('bursary_school_id')->references('id')->on('schools')->onDelete('set null');
             $table->foreign('bursary_course_id')->references('id')->on('courses')->onDelete('set null');
+            $table->foreign('bursary_constituency_id')->references('id')->on('county_constituencies')->onDelete('set null');
+            $table->foreign('bursary_county_id')->references('id')->on('county_constituencies')->onDelete('set null');
             $table->timestamps();
         });
     }

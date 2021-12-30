@@ -17,16 +17,18 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->bigInteger('user_student_id')->nullable()->unsigned();
             $table->bigInteger('school_id')->nullable()->unsigned();
+            $table->bigInteger('constituency_id')->nullable()->unsigned();
+            $table->bigInteger('county_id')->nullable()->unsigned();
             $table->string('phone_number');
             $table->integer('id_number');
             $table->string('year_of_study');
-            $table->string('county');
             $table->string('registration_number');
             $table->bigInteger('course_id')->nullable()->unsigned();
-            $table->string('constituency');
             $table->foreign('user_student_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('set null');
             $table->foreign('school_id')->references('id')->on('schools')->onDelete('set null');
+            $table->foreign('constituency_id')->references('id')->on('county_constituencies')->onDelete('set null');
+            $table->foreign('county_id')->references('id')->on('county_constituencies')->onDelete('set null');
             $table->timestamps();
         });
     }
