@@ -28,7 +28,7 @@ class StudentAccountController extends Controller
         } else {
             $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
             $bursary = BursaryApplication::where('bursary_user_id', auth()->user()->id)->get();
-            return view('students.dashboard', compact('student','bursary'));
+            return view('students.dashboard', compact('student', 'bursary'));
         }
     }
     public function completeprofile()
@@ -89,10 +89,36 @@ class StudentAccountController extends Controller
             return view('students.apply-bursary', compact('student'));
         }
     }
-    public function bursaryapplications(){
+    public function bursaryapplications()
+    {
 
         $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
         $bursary = BursaryApplication::where('bursary_user_id', auth()->user()->id)->get();
-        return view('students.bursary-applications', compact('student','bursary'));
+        return view('students.bursary-applications', compact('student', 'bursary'));
+    }
+    public function allocatedbursaryapplications()
+    {
+
+        $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
+        $bursary = BursaryApplication::where(['bursary_user_id' => auth()->user()->id, 'bursary_status' => 'Allocated'])->get();
+        return view('students.allocated-bursary-applications', compact('student', 'bursary'));
+    }
+    public function deniedbursaryapplications()
+    {
+
+        $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
+        $bursary = BursaryApplication::where(['bursary_user_id' => auth()->user()->id, 'bursary_status' => 'Denied'])->get();
+        return view('students.denied-bursary-applications', compact('student', 'bursary'));
+    }
+    public function appdetails($app)
+    {
+
+        $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
+        $bursary = BursaryApplication::findOrFail($app);
+        return view('students.bursary-application-details', compact('student', 'bursary'));
+    }
+    public function avatar()
+    {
+        return view('students.avatar');
     }
 }

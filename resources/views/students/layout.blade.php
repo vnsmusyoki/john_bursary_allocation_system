@@ -169,13 +169,13 @@
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('student/bursary-applications') }}" class="side-nav-link">
+                        <a href="{{ url('student/allocated-bursary-applications') }}" class="side-nav-link">
 
                             <span> Allocated Applications </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('student/bursary-applications') }}" class="side-nav-link">
+                        <a href="{{ url('student/denied-bursary-applications') }}" class="side-nav-link">
 
                             <span> Denied Applications </span>
                         </a>

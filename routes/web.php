@@ -37,6 +37,10 @@ Route::prefix('student')->group(function () {
     Route::post('finish-account', [StudentAccountController::class, 'storeprofile']);
     Route::get('apply-bursary', [StudentAccountController::class, 'applybursary']);
     Route::get('bursary-applications', [StudentAccountController::class, 'bursaryapplications']);
+    Route::get('application-details/{app}', [StudentAccountController::class, 'appdetails']);
+    Route::get('allocated-bursary-applications', [StudentAccountController::class, 'allocatedbursaryapplications']);
+    Route::get('denied-bursary-applications', [StudentAccountController::class, 'deniedbursaryapplications']);
+    Route::get('avatar', [StudentAccountController::class, 'avatar']);
 });
 
 

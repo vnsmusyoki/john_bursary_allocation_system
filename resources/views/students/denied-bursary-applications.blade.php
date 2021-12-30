@@ -12,7 +12,7 @@
                         <li class="breadcrumb-item active">Applications</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Applied Bursaries</h4>
+                <h4 class="page-title">Denied Bursaries</h4>
             </div>
         </div>
     </div>
