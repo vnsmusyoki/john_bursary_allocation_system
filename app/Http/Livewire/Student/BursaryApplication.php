@@ -38,8 +38,8 @@ class BursaryApplication extends Component
 
     public function increasestep()
     {
-        // $this->resetErrorBag();
-        // $this->validateData();
+        $this->resetErrorBag();
+        $this->validateData();
         $this->currentstep++;
         if ($this->currentstep > $this->totalsteps) {
             $this->currentstep = $this->totalsteps;
@@ -47,7 +47,7 @@ class BursaryApplication extends Component
     }
     public function descreaseStep()
     {
-        // $this->resetErrorBag();
+        $this->resetErrorBag();
         $this->currentstep = $this->currentstep - 1;
         if ($this->currentstep < 1) {
             $this->currentstep = 1;
@@ -57,6 +57,16 @@ class BursaryApplication extends Component
     {
         $student = Student::where('user_student_id', auth()->user()->id)->get()->first();
         return view('livewire.student.bursary-application', compact('student'));
+    }
+    public function validateData()
+    {
+        if ($this->currentstep == 1) {
+            $this->validate([
+                'guardian_full_names' => 'required|string',
+                'gender' => 'required',
+                'guardian_phone_number' => 'required|digits:10',
+            ]);
+        }
     }
     public function applybursary()
     {
