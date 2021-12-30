@@ -51,6 +51,8 @@ Route::prefix('student')->group(function () {
 // CLERK LINKS
 Route::get('school/dashboard', [SchoolAccountController::class, 'index'])->name('school');
 Route::prefix('school')->group(function() {
-    Route::get('school-comments', [SchoolAccountController::class, 'schoolcomments']);
+    Route::get('school-comments', [SchoolAccountController::class, 'schoolcomments']); 
+    Route::get('bursary-applications', [SchoolAccountController::class, 'bursaryapplications']); 
+    Route::get('application-details/{id}', [SchoolAccountController::class, 'applicationdetails']); 
 });
 // dd
