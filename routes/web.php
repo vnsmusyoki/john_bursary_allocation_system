@@ -21,6 +21,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [PagesController::class, 'index']);
+Route::post('/create-account', [PagesController::class, 'createaccount']);
 
 Route::get('cbk/dashboard', [CBKAccountController::class, 'index'])->name('admin');
 Route::prefix('cbk')->group(function () {
@@ -30,6 +31,13 @@ Route::prefix('cbk')->group(function () {
     Route::post('store-constituency', [CBKAccountController::class, 'storeconstituency']);
     Route::post('store-school', [CBKAccountController::class, 'storeschool']);
     Route::get('all-schools', [CBKAccountController::class, 'allschools']);
+    Route::get('avatar', [CBKAccountController::class, 'avatar']);
+    Route::post('update-password', [CBKAccountController::class, 'updatepassword']);
+    Route::post('update-email', [CBKAccountController::class, 'updateemail']);
+    Route::post('update-avatar', [CBKAccountController::class, 'updateavatar']);
+    Route::get('account-security', [CBKAccountController::class, 'accountsecurity']);
+    Route::get('county-allocation/{id}', [CBKAccountController::class, 'countyallocation']);
+    Route::patch('edit-constituency/{id}', [CBKAccountController::class, 'editconstituency']);
 });
 
 
@@ -73,7 +81,7 @@ Route::prefix('school')->group(function () {
 
 
 Route::get('cdf/dashboard', [CdfAccountController::class, 'index'])->name('cdf');
-Route::prefix('cdf')->group(function() {
+Route::prefix('cdf')->group(function () {
     Route::get('application-details/{id}', [CdfAccountController::class, 'applicationdetails']);
     Route::get('computer-points/{id}', [CdfAccountController::class, 'computepoints']);
     Route::get('bursary-points-allocated', [CdfAccountController::class, 'allocatedpoints']);

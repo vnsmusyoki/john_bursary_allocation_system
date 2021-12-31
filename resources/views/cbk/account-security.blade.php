@@ -12,11 +12,10 @@
                         <li class="breadcrumb-item active">Avatar</li>
                     </ol>
                 </div>
-                <h4 class="page-title">CDF Profile Picture</h4>
+                <h4 class="page-title">CBK Profile Picture</h4>
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-12">
             <div class="card">

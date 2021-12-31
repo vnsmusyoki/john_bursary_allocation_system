@@ -10,12 +10,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class CBKAccountController extends Controller
 {
     public function index()
     {
-        return view('cbk.layout');
+        $counties = CountyConstituency::all();
+        return view('cbk.dashboard', compact('counties'));
     }
     public function addcounty()
     {
@@ -69,7 +71,7 @@ class CBKAccountController extends Controller
     public function addschool()
     {
         $counties = CountyConstituency::all();
-        return view('cbk.add-school',compact('counties'));
+        return view('cbk.add-school', compact('counties'));
     }
     public function storeschool(Request $request)
     {
@@ -120,8 +122,78 @@ class CBKAccountController extends Controller
         return redirect()->to('cbk/all-schools');
     }
 
-    public function allschools(){
+    public function allschools()
+    {
         $schools = School::all();
         return view('cbk.all-schools', compact('schools'));
+    }
+    public function accountsecurity()
+    {
+        return view('cbk.account-security');
+    }
+    public function updatepassword(Request $request)
+    {
+        $this->validate($request, [
+            'password' => 'required|min:8|max:20|confirmed',
+            'password_confirmation' => 'required'
+        ]);
+
+        $user = User::find(auth()->user()->id);
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
+
+        Toastr::success('password has been updated.', 'Success', ["positionClass" => "toast-top-right"]);
+        return redirect()->back();
+    }
+    public function updateemail(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email|unique:users',
+        ]);
+
+        $user = User::find(auth()->user()->id);
+        $user->email = $request->input('email');
+        $user->save();
+
+        Toastr::success('Email Address has been updated.', 'Success', ["positionClass" => "toast-top-right"]);
+        return redirect()->back();
+    }
+    public function updateavatar(Request $request)
+    {
+        $this->validate($request, [
+            'picture' => 'required|image|mimes:jpeg,png,jpg|max:6048',
+        ]);
+        $user = User::find(auth()->user()->id);
+        Storage::delete('public/profiles/' . $user->picture);
+        $fileNameWithExt = $request->picture->getClientOriginalName();
+        $fileName =  pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $Extension = $request->picture->getClientOriginalExtension();
+        $filenameToStore = $fileName . '-' . time() . '.' . $Extension;
+        $path = $request->picture->storeAs('profiles', $filenameToStore, 'public');
+        $user->picture = $filenameToStore;
+        $user->save();
+
+        Toastr::success('Account Avatar has been updated.', 'Success', ["positionClass" => "toast-top-right"]);
+        return redirect()->back();
+    }
+    public function countyallocation($id)
+    {
+        $county = CountyConstituency::findOrFail($id);
+        return view('cbk.edit-allocation', compact('county'));
+    }
+    public function editconstituency(Request $request, $id)
+    {
+        $this->validate($request, [
+            'full_names' => 'required|string',
+            'home_county' => 'required',
+            'amount' => 'required|numeric',
+            'constituency' => 'required|string',
+            'picture' => 'nullable|image|mimes:jpeg,png,jpg|max:6048',
+        ]);
+        $county =CountyConstituency::findOrFail($id);
+        $county->amount_allocated =  $request->input('amount');
+        $county->save();
+
+        return redirect()->to('cbk/all-county-subcounty');
     }
 }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>CDF | @yield('title')</title>
+    <title>County | @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -162,11 +162,11 @@
                     </li>
                     <li class="side-nav-item">
                         <a href="{{ url('cbk/all-schools') }}" class="side-nav-link">
-                            <span> All School</span>
+                            <span> All Schools</span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('cdf/account-security') }}" class="side-nav-link">
+                        <a href="{{ url('cbk/account-security') }}" class="side-nav-link">
                             <span> Account Security </span>
                         </a>
                     </li>

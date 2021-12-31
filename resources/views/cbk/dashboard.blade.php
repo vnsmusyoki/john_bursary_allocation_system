@@ -1,47 +1,36 @@
 @extends('cbk.layout')
-@section('title', 'Main CDF Dashboard')
+@section('title', 'Dashboard')
 @section('content')
-
     <!-- start page title -->
     <div class="row">
         <div class="col-12">
             <div class="page-title-box">
                 <div class="page-title-right">
-                    <form class="d-flex">
-                        <div class="input-group">
-                            <input type="text" class="form-control form-control-light" id="dash-daterange">
-                            <span class="input-group-text bg-primary border-primary text-white">
-                                <i class="mdi mdi-calendar-range font-13"></i>
-                            </span>
-                        </div>
-                        <a href="javascript: void(0);" class="btn btn-primary ms-2">
-                            <i class="mdi mdi-autorenew"></i>
-                        </a>
-                        <a href="javascript: void(0);" class="btn btn-primary ms-1">
-                            <i class="mdi mdi-filter-variant"></i>
-                        </a>
-                    </form>
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">All</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard </a></li>
+                        <li class="breadcrumb-item active">Constituencies</li>
+                    </ol>
                 </div>
-                <h4 class="page-title">Dashboard</h4>
+                <h4 class="page-title">All Constituencies</h4>
             </div>
         </div>
     </div>
     <!-- end page title -->
-
-
-
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
 
-
+                    <p class="text-muted font-14">
+                        Manage Allocations
+                    </p>
 
                     <ul class="nav nav-tabs nav-bordered mb-3">
                         <li class="nav-item">
                             <a href="#buttons-table-preview" data-bs-toggle="tab" aria-expanded="false"
                                 class="nav-link active">
-                                Verified Applications
+                                All County Constituencies
                             </a>
                         </li>
 
@@ -52,50 +41,33 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Student Name</th>
-                                        <th>Registration No.</th>
-                                        <th>Bursary ID</th>
-                                        <th>Amount Applied</th>
-                                        <th>Amount Allocated</th>
-                                        <th>Date Applied</th>
-                                        <th>Application Status</th>
+                                        <th>Profile</th>
+                                        <th>Manager</th>
+                                        <th>Email Address</th>
                                         <th>County</th>
+                                        <th>Amount Allocated</th>
                                         <th>Constituency</th>
+                                        <th>Date Created</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-
-
                                 <tbody>
-                                    @if ($acceptedbursaries->count() >= 1)
-                                        @foreach ($acceptedbursaries as $key => $app)
+                                    @if ($counties->count() >= 1)
+                                        @foreach ($counties as $key => $county)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
-                                                <td style="text-transform:capitalize;">{{ $app->bursaryuser->name }}</td>
-                                                <td style="text-transform:uppercase;">{{ $app->bursarystudent->registration_number }}</td>
+                                                <td><img src="{{ asset('storage/profiles/'.$county->countyuser->picture) }}" alt="" style="height:60px;width:60px;border-radius:50%;"></td>
+                                                <td>{{ $county->countyuser->name }}</td>
+                                                <td>{{ $county->countyuser->email }}</td>
 
-                                                <td>{{ $app->bursary_id }}</td>
-                                                <td>Kshs. {{ $app->amount_applying }}</td>
-                                                <td>Kshs. {{ $app->bursary_allocated_amount }}</td>
-                                                <td>{{ $app->created_at->addHours(3)->format('l, d/m/Y') }}</td>
+                                                <td>{{ $county->county }}</td>
+                                                <td>Kshs. {{ $county->amount_allocated }}</td>
+                                                <td>{{ $county->constituency }}</td>
+                                                <td>{{ $county->created_at->addHours(3)->format('l, d/m/Y') }}</td>
+
                                                 <td>
-                                                    @if ($app->bursary_status == 'applied')
-                                                        <span class="badge bg-primary">Recently Applied</span>
-                                                    @elseif ($app->bursary_status == 'school')
-                                                        <span class="badge bg-warning">School Processing</span>
-                                                    @elseif ($app->bursary_status == 'cdf')
-                                                        <span class="badge bg-warning">CDF Reviewing</span>
-
-                                                    @elseif ($app->bursary_status == 'allocated')
-                                                        <span class="badge bg-success">Allocated</span>
-                                                    @else
-                                                        <span class="badge bg-danger">Denied</span>
-                                                    @endif
-
+                                                    <a href="{{ url('cbk/county-allocation/'.$county->id) }}" class="btn btn-success" >Edit</a>
                                                 </td>
-                                                <td>{{ $app->bursarycounty->county }}</td>
-                                                <td>{{ $app->bursaryconstituency->constituency }}</td>
-                                                <td><a href="{{ url('cdf/application-details/'.$app->id)}}" class="btn btn-success">Details</a></td>
                                             </tr>
                                         @endforeach
 
@@ -116,4 +88,4 @@
     </div> <!-- end row-->
 
 
-    @endsection
+@endsection

@@ -1,81 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta name="description" content="Responsive Admin Template" />
-    <meta name="author" content="RedstarHospital" />
-    <title>Welcome Back</title>
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
-        type="text/css" />
-    <!-- icons -->
-    <link href="{{ asset('backend/fonts/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <link rel="stylesheet"
-        href="{{ asset('backend/assets/plugins/iconic/css/material-design-iconic-font.min.css') }}">
-    <!-- bootstrap -->
-    <link href="{{ asset('backend/assets/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"
-        type="text/css" />
-    <!-- style -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/extra_pages.css') }}">
-    <!-- favicon -->
-    <link rel="shortcut icon" href="{{ asset('backend/assets/img/favicon.ico') }}" />
+    <title>Log In |Bursary Application System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <link href="{{ asset('backend/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/css/app-modern.min.css') }}" rel="stylesheet" type="text/css" id="light-style" />
+    <link href="{{ asset('backend/css/app-modern-dark.min.css') }}" rel="stylesheet" type="text/css"
+        id="dark-style" />
 </head>
 
-<body>
-    <div class="limiter">
-        <div class="container-login100 page-background">
-            <div class="wrap-login100">
-                <form class="login100-form validate-form" autocomplete="off" method="POST"
-                    action="{{ route('login') }}">
-                    @csrf
-                    <span class="login100-form-logo">
-                        <img alt="" src="{{ asset('backend/assets/img/logo-2.png') }}">
-                    </span>
-                    <span class="login100-form-title p-b-34 p-t-27">
-                        Log in
-                    </span>
-                    <div class="wrap-input100 validate-input" data-validate="Enter address">
-                        <input class="input100" type="text" name="email" placeholder="Valid Email Address">
-                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
-                    </div>
-                    @error('email')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                    <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <input class="input100" type="password" name="password" placeholder="Password">
-                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                    </div>
-                    @error('password')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+<body class="authentication-bg pb-0" data-layout-config='{"darkMode":true}'>
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
 
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-                    <div class="text-center p-t-30">
-                        
-                        @if (Route::has('password.request'))
-                        <a class="txt1" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
+                    <!-- Logo -->
+                    <div class="auth-brand text-center text-lg-start">
+                        <a href="{{ url('/') }}" class="logo-dark">
+                            <span><img src="assets/images/logo-dark.png" alt="" height="18"></span>
                         </a>
-                    @endif
+                        <a href="{{ url('/') }}" class="logo-light">
+                            <span><img src="assets/images/logo.png" alt="" height="18"></span>
+                        </a>
                     </div>
-                </form>
-            </div>
+
+                    <!-- title-->
+                    <h4 class="mt-0">Sign In</h4>
+                    <p class="text-muted mb-4">Enter your email address and password to access account.</p>
+
+                    <!-- form -->
+                    <form action="{{ route('login') }}" method="POST" autocomplete="off">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="emailaddress" class="form-label">Email address</label>
+                            <input class="form-control" type="email" id="emailaddress" name="email"
+                                placeholder="Enter your email">
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <a href="" class="text-muted float-end"><small>Forgot your
+                                    password?</small></a>
+                            <label for="password" class="form-label">Password</label>
+                            <input class="form-control" type="password"  id="password"
+                                placeholder="Enter your password" name="password">
+                            @error('password')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="d-grid mb-0 text-center">
+                            <button class="btn btn-primary" type="submit"><i class="mdi mdi-login"></i> Log In
+                            </button>
+                        </div>
+                        <!-- social-->
+
+                    </form>
+                    <!-- end form-->
+
+                    <!-- Footer-->
+                    <footer class="footer footer-alt">
+                        <p class="text-muted">Don't have an account? <a href="{{ route('register') }}"
+                                class="text-muted ms-1"><b>Sign Up</b></a></p>
+                    </footer>
+
+                </div> <!-- end .card-body -->
+            </div> <!-- end .align-items-center.d-flex.h-100-->
         </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <div class="auth-fluid-right text-center">
+            <div class="auth-user-testimonial">
+                <h2 class="mb-3">Bursary Allocation System!</h2>
+                <p class="lead"><i class="mdi mdi-format-quote-open"></i> Enter your email address and password to access your account<i class="mdi mdi-format-quote-close"></i>
+                </p>
+                <p>
+                    - Bursary Applications System
+                </p>
+            </div> <!-- end auth-user-testimonial-->
+        </div>
+        <!-- end Auth fluid right content -->
     </div>
-    <!-- start js include path -->
-    <script src="{{ asset('backend/assets/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- bootstrap -->
-    <script src="{{ asset('backend/assets/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/pages/extra-pages/pages.js') }}"></script>
-    <!-- end js include path -->
+
+    <!-- bundle -->
+    <script src="{{ asset('backend/js/vendor.min.js') }}"></script>
+    <script src="{{ asset('backend/js/app.min.js') }}"></script>
 </body>
 
 </html>
