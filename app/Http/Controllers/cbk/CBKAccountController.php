@@ -9,6 +9,10 @@ class CBKAccountController extends Controller
 {
     public function index()
     {
-        return view('admin.layout');
+        return view('cbk.layout');
+    }
+    public function addcounty()
+    {
+        return view('cbk.add-county');
     }
 }

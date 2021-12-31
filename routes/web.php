@@ -24,6 +24,8 @@ Route::get('/', [PagesController::class, 'index']);
 
 Route::get('cbk/dashboard', [CBKAccountController::class, 'index'])->name('admin');
 Route::prefix('cbk')->group(function () {
+    Route::get('add-county-subcounty', [CBKAccountController::class, 'addcounty']);
+    Route::get('all-county-subcounty', [CBKAccountController::class, 'allcounties']);
 });
 
 
