@@ -25,7 +25,11 @@ Route::get('/', [PagesController::class, 'index']);
 Route::get('cbk/dashboard', [CBKAccountController::class, 'index'])->name('admin');
 Route::prefix('cbk')->group(function () {
     Route::get('add-county-subcounty', [CBKAccountController::class, 'addcounty']);
+    Route::get('add-school', [CBKAccountController::class, 'addschool']);
     Route::get('all-county-subcounty', [CBKAccountController::class, 'allcounties']);
+    Route::post('store-constituency', [CBKAccountController::class, 'storeconstituency']);
+    Route::post('store-school', [CBKAccountController::class, 'storeschool']);
+    Route::get('all-schools', [CBKAccountController::class, 'allschools']);
 });
 
 

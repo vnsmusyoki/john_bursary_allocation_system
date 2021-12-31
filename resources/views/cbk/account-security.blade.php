@@ -1,4 +1,4 @@
-@extends('cdf.layout')
+@extends('cbk.layout')
 @section('title', 'Account Security')
 @section('content')
     <!-- start page title -->
@@ -34,7 +34,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="floating-preview">
-                            <form action="{{ url('cdf/update-avatar') }}" method="POST" autocomplete="off"
+                            <form action="{{ url('cbk/update-avatar') }}" method="POST" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -79,7 +79,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="floating-preview">
-                            <form action="{{ url('cdf/update-email') }}" method="POST" autocomplete="off"
+                            <form action="{{ url('cbk/update-email') }}" method="POST" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -125,7 +125,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="floating-preview">
-                            <form action="{{ url('cdf/update-password') }}" method="POST" autocomplete="off"
+                            <form action="{{ url('cbk/update-password') }}" method="POST" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">

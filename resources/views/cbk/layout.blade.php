@@ -100,9 +100,7 @@
             <div class="app-search dropdown">
                 <form>
                     <div class="input-group">
-
-
-                        <button class="input-group-text btn-primary">School Dashboard</button>
+                        <button class="input-group-text btn-primary">CBK Dashboard</button>
                     </div>
                 </form>
 
@@ -145,7 +143,6 @@
                             <span> Dashboard </span>
                         </a>
                     </li>
-
                     <li class="side-nav-item">
                         <a href="{{ url('cbk/add-county-subcounty') }}" class="side-nav-link">
 
@@ -159,14 +156,20 @@
                         </a>
                     </li>
                     <li class="side-nav-item">
+                        <a href="{{ url('cbk/add-school') }}" class="side-nav-link">
+                            <span> Add New School</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="{{ url('cbk/all-schools') }}" class="side-nav-link">
+                            <span> All School</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
                         <a href="{{ url('cdf/account-security') }}" class="side-nav-link">
-
                             <span> Account Security </span>
                         </a>
                     </li>
-
-
-
                     <li class="side-nav-item">
 
                         <a class="side-nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
