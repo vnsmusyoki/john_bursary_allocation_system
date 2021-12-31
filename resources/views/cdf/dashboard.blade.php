@@ -28,56 +28,8 @@
     </div>
     <!-- end page title -->
 
-    <div class="row">
-        <div class="col-xl-12 col-lg-12">
 
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="card widget-flat">
-                        <div class="card-body">
 
-                            <h5 class="text-muted fw-normal mt-0" title="Number of Students">Total Applications
-                            </h5>
-                            <h3 class="mt-3 mb-3">{{ $bursaries->count() }}</h3>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
-
-                <div class="col-lg-3">
-                    <div class="card widget-flat">
-                        <div class="card-body">
-
-                            <h5 class="text-muted fw-normal mt-0" title="Number of Orders">Accepted</h5>
-                            <h3 class="mt-3 mb-3">{{ $acceptedbursaries->count() }}</h3>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
-                <div class="col-lg-3">
-                    <div class="card widget-flat">
-                        <div class="card-body">
-
-                            <h5 class="text-muted fw-normal mt-0" title="Average Revenue">Rejected</h5>
-                            <h3 class="mt-3 mb-3">{{ $deniedbursaries->count() }}</h3>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
-
-                <div class="col-lg-3">
-                    <div class="card widget-flat">
-                        <div class="card-body">
-
-                                <h5 class="text-muted fw-normal mt-0" title="Growth">New Applications</h5>
-                                <h3 class="mt-3 mb-3">{{ $newbursaries->count() }}</h3>
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div> <!-- end col-->
-                </div> <!-- end row -->
-
-            </div> <!-- end col -->
-
-        </div>
-        <!-- end row -->
-    <!-- end page title -->
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -89,7 +41,7 @@
                         <li class="nav-item">
                             <a href="#buttons-table-preview" data-bs-toggle="tab" aria-expanded="false"
                                 class="nav-link active">
-                                New Applications
+                                Verified Applications
                             </a>
                         </li>
 
@@ -115,8 +67,8 @@
 
 
                                 <tbody>
-                                    @if ($newbursaries->count() >= 1)
-                                        @foreach ($newbursaries as $key => $app)
+                                    @if ($acceptedbursaries->count() >= 1)
+                                        @foreach ($acceptedbursaries as $key => $app)
                                             <tr>
                                                 <td>{{ ++$key }}</td>
                                                 <td style="text-transform:capitalize;">{{ $app->bursaryuser->name }}</td>
@@ -143,7 +95,7 @@
                                                 </td>
                                                 <td>{{ $app->bursarycounty->county }}</td>
                                                 <td>{{ $app->bursaryconstituency->constituency }}</td>
-                                                <td><a href="{{ url('school/application-details/'.$app->id)}}" class="btn btn-success">Details</a></td>
+                                                <td><a href="{{ url('cdf/application-details/'.$app->id)}}" class="btn btn-success">Details</a></td>
                                             </tr>
                                         @endforeach
 

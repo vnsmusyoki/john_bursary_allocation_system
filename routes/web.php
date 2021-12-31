@@ -67,4 +67,7 @@ Route::prefix('school')->group(function () {
 
 
 Route::get('cdf/dashboard', [CdfAccountController::class, 'index'])->name('cdf');
+Route::prefix('cdf')->group(function() {
+    Route::get('application-details/{id}', [CdfAccountController::class, 'applicationdetails']);
+});
 // dd

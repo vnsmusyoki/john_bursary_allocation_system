@@ -1,4 +1,4 @@
-@extends('school.layout')
+@extends('cdf.layout')
 @section('title', 'Application Details')
 @section('content')
     <!-- start page title -->
@@ -7,285 +7,212 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">All</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">Bursary </a></li>
-                        <li class="breadcrumb-item active">Applications</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Bursary</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Application</a></li>
+                        <li class="breadcrumb-item active"> Details</li>
                     </ol>
                 </div>
-                <h4 class="page-title">Applied Bursaries</h4>
+                <h4 class="page-title">{{ $bursary->bursaryuser->name }}</h4>
             </div>
         </div>
     </div>
     <!-- end page title -->
+
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="">
 
-                    <p class="text-muted font-14">
-                        Personal Data
-                    </p>
-                    <ul class="nav nav-tabs nav-bordered mb-3">
+                                <p><a href="{{ asset('storage/feestructure/' . $bursary->fee_structure) }}"
+                                        download="fee-structure-{{ $bursary->bursaryuser->name }}"
+                                        class="btn btn-danger btn-block">Download Fee Structure</a></p>
 
-                        <li class="nav-item">
-                            <a href="#buttons-table-first" data-bs-toggle="tab" aria-expanded="true"
-                                class="nav-link active">
-                                Personal Data
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#scroll-horizontal-code" data-bs-toggle="tab" aria-expanded="true"
-                                class="nav-link">
-                                Parental Data
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#scroll-horizontal-guradian" data-bs-toggle="tab" aria-expanded="true"
-                                class="nav-link">
-                                Family Data
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#scroll-horizontal-health" data-bs-toggle="tab" aria-expanded="true"
-                                class="nav-link">
-                                Health Data
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#scroll-horizontal-school" data-bs-toggle="tab" aria-expanded="true"
-                                class="nav-link">
-                                School Data
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#scroll-horizontal-codes" data-bs-toggle="tab" aria-expanded="true"
-                                class="nav-link">
-                                School Data
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#scroll-horizontal-data" data-bs-toggle="tab" aria-expanded="true"
-                                class="nav-link">
-                                School Action
-                            </a>
-                        </li>
+                                <p> <a href="{{ asset('storage/schoolperfomance/' . $bursary->school_perfomance) }}"
+                                        download="school-perfomance-{{ $bursary->bursaryuser->name }}"
+                                        class="btn btn-success btn-block">Download School Results</a></p>
+                                @if ($bursary->special_needs_attachment != null)
+                                    <p> <a href="{{ asset('storage/specialneeds/' . $bursary->special_needs_attachment) }}"
+                                            download="special-needs-attachment-{{ $bursary->bursaryuser->name }}"
+                                            class="btn btn-warning btn-block">Download Special Needs Attachment</a></p>
+                                @endif
+                                @if ($bursary->relevant_attachment != null)
+                                    <p> <a href="{{ asset('storage/additionaldocuments/' . $bursary->relevant_attachment) }}"
+                                            download="additional-documents-{{ $bursary->bursaryuser->name }}"
+                                            class="btn btn-primary btn-block">Download Additional Attachment</a></p>
+                                @endif
 
+                                 <!-- Product title -->
+                                 <h3 class="mt-0">School details<a href="javascript: void(0);"
+                                    class="text-muted"><i class="mdi mdi-square-edit-outline ms-2"></i></a> </h3>
+                          
+                            <div class="text-start">
+                                <p class="text-muted"><strong>School Name :</strong> <span
+                                        class="ms-2">{{ $student->studentuser->name }}</span></p>
 
-                    </ul> <!-- end nav-->
-                    <div class="tab-content">
+                                <p class="text-muted"><strong>Mobile :</strong><span
+                                        class="ms-2">{{ $student->phone_number }}</span></p>
 
-                        <div class="tab-pane show active" id="scroll-horizontal-first">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingPasswordnames"
-                                            value="{{ Auth::user()->name }}">
-                                        <label for="floatingPasswordnames">Full Names</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInputemail"
-                                            value="{{ Auth::user()->email }}">
-                                        <label for="floatingInputemail">Email address</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingPasswordidnumber"
-                                            value="{{ $student->id_number }}">
-                                        <label for="floatingPasswordidnumber">National ID</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingPasswordphone"
-                                            value="{{ $student->phone_number }}">
-                                        <label for="floatingPasswordphone">Phone Number</label>
-                                    </div>
+                                <p class="text-muted"><strong>Email :</strong> <span
+                                        class="ms-2">{{ $student->studentuser->email }}</span></p>
 
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingPasswordschool"
-                                            value="{{ $student->studentschool->school_name }}">
-                                        <label for="floatingPasswordschool">School</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingPasswordscourse"
-                                            value="{{ $student->studentcourse->course_name }}">
-                                        <label for="floatingPasswordscourse">Course</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingPasswordregno"
-                                            value="{{ $student->registration_number }}" style="text-transform:uppercase;">
-                                        <label for="floatingPasswordregno">Registration Number</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="floatingPasswordyearstudy"
-                                            value="{{ $student->year_of_study }}" style="text-transform:uppercase;">
-                                        <label for="floatingPasswordyearstudy">Year of Study</label>
-                                    </div>
+                                <p class="text-muted"><strong>Home County :</strong> <span
+                                        class="ms-2">{{ $student->studentcounty->county }}</span></p>
+                                <p class="text-muted"><strong>Constituency :</strong> <span
+                                        class="ms-2">{{ $student->studentconstituency->constituency }}</span>
+                                </p>
 
+                                <p class="text-muted"><strong>Languages :</strong>
+                                    <span class="ms-2"> English, Kiswahili </span>
+                                </p>
 
-                                </div>
-                            </div>
-                        </div> <!-- end preview-->
-                        <div class="tab-pane show" id="scroll-horizontal-code">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->guardian_full_names }}"
-                                            style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Guardian Full Names</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->guardian_phone_number }}"
-                                            style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Guardian Full Names</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane show" id="scroll-horizontal-guradian">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->family_status }}" style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Family Status</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->family_income_loss_description }}"
-                                            style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Family Losses</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="scroll-horizontal-health">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->special_needs }}" style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Special Needs</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->special_needs_description }}"
-                                            style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Specified</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="scroll-horizontal-school">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->student_helb_status }}"
-                                            style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Are You on HELB</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->student_helb_status_decision }}"
-                                            style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Reasons</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-floating mb-3">
-
-
-                                        <textarea name="" id="" cols="30" rows="10"
-                                            class="form-control">{{ $bursary->application_support }}</textarea>
-                                        <label for="floatingInputGridss">Additional Information</label>
-                                    </div>
-                                </div>
 
                             </div>
-                        </div>
-                        <div class="tab-pane" id="scroll-horizontal-codes">
-                            <div class="row">
-                                <div class="col-lg-4">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->amount_applying }}" style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Amount Applied</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->bursary_allocated_amount }}"
-                                            style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Amount Allocated</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-floating mb-3">
-
-                                        <input type="text" class="form-control" id="floatingInputGridss"
-                                            value="{{ $bursary->bursary_status }}" style="text-transform: capitalize;">
-                                        <label for="floatingInputGridss">Bursary Status</label>
-                                    </div>
-                                </div>
+                            <hr>
 
                             </div>
-                        </div>
-                        <div class="tab-pane show" id="scroll-horizontal-data">
-                            @if ($bursary->school_status == null)
-                                <form action="{{ url('school/school-update-application/' . $bursary->id) }}" method="POST">
-                                    @csrf
-                                    @method('PATCH')
-                                    <div class="col-lg-4">
-                                        <div class="form-floating mb-3">
+                        </div> <!-- end col -->
+                        <div class="col-lg-7">
+                            <form class="ps-lg-4">
+                                <!-- Product title -->
+                                <h3 class="mt-0">Student details<a href="javascript: void(0);"
+                                        class="text-muted"><i class="mdi mdi-square-edit-outline ms-2"></i></a> </h3>
+                                <p class="mb-1">Date Applied:
+                                    {{ $bursary->created_at->addHours(3)->format('l,d/m/Y h:i:s a') }}</p>
+                                <div class="text-start">
+                                    <p class="text-muted"><strong>Full Name :</strong> <span
+                                            class="ms-2">{{ $student->studentuser->name }}</span></p>
 
-                                            <select name="school_status" id="" class="form-control" required>
-                                                <option value="">Select</option>
-                                                <option value="school">Submit To CDF</option>
-                                                <option value="Return">Return to Student</option>
-                                            </select>
-                                            <label for="floatingInputGridss">Sschool Response</label>
+                                    <p class="text-muted"><strong>Mobile :</strong><span
+                                            class="ms-2">{{ $student->phone_number }}</span></p>
+
+                                    <p class="text-muted"><strong>Email :</strong> <span
+                                            class="ms-2">{{ $student->studentuser->email }}</span></p>
+
+                                    <p class="text-muted"><strong>Home County :</strong> <span
+                                            class="ms-2">{{ $student->studentcounty->county }}</span></p>
+                                    <p class="text-muted"><strong>Constituency :</strong> <span
+                                            class="ms-2">{{ $student->studentconstituency->constituency }}</span>
+                                    </p>
+
+                                    <p class="text-muted"><strong>Languages :</strong>
+                                        <span class="ms-2"> English, Kiswahili </span>
+                                    </p>
+
+
+                                </div>
+                                <hr>
+                                <div class="mt-4">
+                                    <h6 class="font-14">Supporting Explanation:</h6>
+                                    <p>{{ $bursary->application_support }} </p>
+                                </div>
+                                <div class="mt-4">
+                                    <h6 class="font-14">Points Earned</h6>
+                                    <div class="d-flex">
+
+                                        <button type="button" class="btn btn-danger ms-2">
+                                            {{ $bursary->points_earned }}</button>
+                                    </div>
+                                </div>
+                                <!-- Product information -->
+                                <div class="mt-4">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h6 class="font-14">Available Stock:</h6>
+                                            <p class="text-sm lh-150">1784</p>
                                         </div>
-                                        <button type="submit" class="btn btn-success">Submit Data</button>
+                                        <div class="col-md-4">
+                                            <h6 class="font-14">Number of Orders:</h6>
+                                            <p class="text-sm lh-150">5,458</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6 class="font-14">Revenue:</h6>
+                                            <p class="text-sm lh-150">$8,57,014</p>
+                                        </div>
                                     </div>
-                                </form>
-                            @elseif($bursary->school_status == "school")
-                                <button class="btn btn-success">Verified ,Student Notified & forwaded for Bursary allocation</button>
-                            @else
-                                <button class="btn btn-danget">Denied ,Student Notified </button>
-                            @endif
+                                </div>
 
-                        </div>
+                            </form>
+                        </div> <!-- end col -->
+                    </div> <!-- end row-->
 
+                    <div class="table-responsive mt-4">
+                        <table class="table table-bordered table-centered mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Outlets</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ASOS Ridley Outlet - NYC</td>
+                                    <td>$139.58</td>
+                                    <td>
+                                        <div class="progress-w-percent mb-0">
+                                            <span class="progress-value">478 </span>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 56%;"
+                                                    aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$1,89,547</td>
+                                </tr>
+                                <tr>
+                                    <td>Marco Outlet - SRT</td>
+                                    <td>$149.99</td>
+                                    <td>
+                                        <div class="progress-w-percent mb-0">
+                                            <span class="progress-value">73 </span>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 16%;"
+                                                    aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$87,245</td>
+                                </tr>
+                                <tr>
+                                    <td>Chairtest Outlet - HY</td>
+                                    <td>$135.87</td>
+                                    <td>
+                                        <div class="progress-w-percent mb-0">
+                                            <span class="progress-value">781 </span>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 72%;"
+                                                    aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$5,87,478</td>
+                                </tr>
+                                <tr>
+                                    <td>Nworld Group - India</td>
+                                    <td>$159.89</td>
+                                    <td>
+                                        <div class="progress-w-percent mb-0">
+                                            <span class="progress-value">815 </span>
+                                            <div class="progress progress-sm">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: 89%;"
+                                                    aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$55,781</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> <!-- end table-responsive-->
 
-                    </div> <!-- end tab-content-->
-
-                </div> <!-- end card body-->
-            </div> <!-- end card -->
-        </div><!-- end col-->
-    </div> <!-- end row-->
-
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div> <!-- end col-->
+    </div>
+    <!-- end row-->
 
 @endsection

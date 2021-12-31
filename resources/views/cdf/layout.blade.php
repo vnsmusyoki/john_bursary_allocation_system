@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>School | @yield('title')</title>
+    <title>CDF | @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -140,33 +140,28 @@
                     <li class="side-nav-title side-nav-item">Navigation</li>
 
                     <li class="side-nav-item">
-                        <a href="{{ route('school') }}" class="side-nav-link">
+                        <a href="{{ route('cdf') }}" class="side-nav-link">
 
                             <span> Dashboard </span>
                         </a>
                     </li>
 
 
-                   
+
 
                     <li class="side-nav-item">
-                        <a href="{{ url('school/bursary-applications') }}" class="side-nav-link">
+                        <a href="{{ url('cdf/bursary-applications') }}" class="side-nav-link">
 
                             <span> New Bursary Applications </span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href="{{ url('school/submited-applications') }}" class="side-nav-link">
+                        <a href="{{ url('cdf/allocated-applications') }}" class="side-nav-link">
 
-                            <span> Submited Applications </span>
+                            <span> Allocated Applications </span>
                         </a>
                     </li>
-                    <li class="side-nav-item">
-                        <a href="{{ url('school/denied-applications') }}" class="side-nav-link">
 
-                            <span> Cancelled Applications </span>
-                        </a>
-                    </li>
 
 
                     <li class="side-nav-item">
