@@ -40,5 +40,8 @@ class LoginController extends Controller
         if ($user->hasRole('school')) {
             return  redirect()->route('school');
         }
+        if ($user->hasRole('cdf')) {
+            return  redirect()->route('cdf');
+        }
     }
 }

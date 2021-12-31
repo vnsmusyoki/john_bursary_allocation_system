@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\cbk\CBKAccountController;
+use App\Http\Controllers\Cdf\CdfAccountController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\school\SchoolAccountController;
 use App\Http\Controllers\student\StudentAccountController;
@@ -62,4 +63,8 @@ Route::prefix('school')->group(function () {
     Route::post('update-email', [SchoolAccountController::class, 'updateemail']);
     Route::post('update-avatar', [SchoolAccountController::class, 'updateavatar']);
 });
+
+
+
+Route::get('cdf/dashboard', [CdfAccountController::class, 'index'])->name('cdf');
 // dd

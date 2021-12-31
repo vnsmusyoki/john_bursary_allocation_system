@@ -17,6 +17,8 @@ class CreateCountyConstituenciesTable extends Migration
             $table->id();
             $table->string('county');
             $table->string('constituency');
+            $table->bigInteger('user_manager_id')->nullable()->unsigned();
+            $table->foreign('user_manager_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

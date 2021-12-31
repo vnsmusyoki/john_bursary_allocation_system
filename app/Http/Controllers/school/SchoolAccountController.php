@@ -28,7 +28,7 @@ class SchoolAccountController extends Controller
         $newbursaries = BursaryApplication::where(['bursary_school_id' => $school->id, 'school_status' => null])->get();
         $deniedbursaries = BursaryApplication::where(['bursary_school_id' => $school->id, 'school_status' => 'Returned'])->get();
         $acceptedbursaries = BursaryApplication::where(['bursary_school_id' => $school->id, 'school_status' => 'school'])->get();
-        return view('school.dashboard', compact(['newbursaries','bursaries' ,'acceptedbursaries', 'deniedbursaries']));
+        return view('school.dashboard', compact(['newbursaries', 'bursaries', 'acceptedbursaries', 'deniedbursaries']));
     }
 
     public function schoolcomments()
