@@ -24,6 +24,9 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-lg-5">
+                            <!-- Product title -->
+                            <h3 class="mt-0">Attachments<a href="javascript: void(0);" class="text-muted"><i
+                                        class="mdi mdi-square-edit-outline ms-2"></i></a> </h3>
                             <div class="">
 
                                 <p><a href="{{ asset('storage/feestructure/' . $bursary->fee_structure) }}"
@@ -43,35 +46,6 @@
                                             download="additional-documents-{{ $bursary->bursaryuser->name }}"
                                             class="btn btn-primary btn-block">Download Additional Attachment</a></p>
                                 @endif
-
-                                 <!-- Product title -->
-                                 <h3 class="mt-0">School details<a href="javascript: void(0);"
-                                    class="text-muted"><i class="mdi mdi-square-edit-outline ms-2"></i></a> </h3>
-                          
-                            <div class="text-start">
-                                <p class="text-muted"><strong>School Name :</strong> <span
-                                        class="ms-2">{{ $student->studentuser->name }}</span></p>
-
-                                <p class="text-muted"><strong>Mobile :</strong><span
-                                        class="ms-2">{{ $student->phone_number }}</span></p>
-
-                                <p class="text-muted"><strong>Email :</strong> <span
-                                        class="ms-2">{{ $student->studentuser->email }}</span></p>
-
-                                <p class="text-muted"><strong>Home County :</strong> <span
-                                        class="ms-2">{{ $student->studentcounty->county }}</span></p>
-                                <p class="text-muted"><strong>Constituency :</strong> <span
-                                        class="ms-2">{{ $student->studentconstituency->constituency }}</span>
-                                </p>
-
-                                <p class="text-muted"><strong>Languages :</strong>
-                                    <span class="ms-2"> English, Kiswahili </span>
-                                </p>
-
-
-                            </div>
-                            <hr>
-
                             </div>
                         </div> <!-- end col -->
                         <div class="col-lg-7">
@@ -97,17 +71,92 @@
                                             class="ms-2">{{ $student->studentconstituency->constituency }}</span>
                                     </p>
 
-                                    <p class="text-muted"><strong>Languages :</strong>
-                                        <span class="ms-2"> English, Kiswahili </span>
+                                    <p class="text-muted"><strong>Phone Number :</strong>
+                                        <span class="ms-2"> {{ $student->phone_number }} </span>
+                                    </p>
+                                    <p class="text-muted"><strong>ID Number :</strong>
+                                        <span class="ms-2"> {{ $student->id_number }} </span>
+                                    </p>
+                                </div>
+
+
+                            </form>
+                        </div> <!-- end col -->
+                    </div> <!-- end row-->
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="">
+                                <!-- Product title -->
+                                <h3 class="mt-0">School details<a href="javascript: void(0);"
+                                        class="text-muted"><i class="mdi mdi-square-edit-outline ms-2"></i></a> </h3>
+
+                                <div class="text-start">
+                                    <p class="text-muted"><strong>School Name :</strong> <span
+                                            class="ms-2">{{ $bursary->bursaryschool->school_name }}</span></p>
+
+                                    <p class="text-muted"><strong>School County :</strong><span
+                                            class="ms-2">{{ $bursary->bursaryschool->school_county }}</span>
                                     </p>
 
+                                    <p class="text-muted"><strong>Category :</strong> <span
+                                            class="ms-2">{{ $bursary->bursaryschool->school_category }}</span>
+                                    </p>
 
+                                    <p class="text-muted"><strong>Course Taking :</strong> <span
+                                            class="ms-2">{{ $student->studentcourse->course_name }}</span></p>
+                                    <p class="text-muted"><strong>Current Year of Study :</strong> <span
+                                            class="ms-2">{{ $student->year_of_study }}</span>
+                                    </p>
+                                    <p class="text-muted"><strong>Registration Number:</strong> <span
+                                            class="ms-2">{{ $student->registration_number }}</span>
+                                    </p>
                                 </div>
                                 <hr>
-                                <div class="mt-4">
-                                    <h6 class="font-14">Supporting Explanation:</h6>
-                                    <p>{{ $bursary->application_support }} </p>
+
+                            </div>
+                        </div> <!-- end col -->
+                        <div class="col-lg-7">
+                            <form class="ps-lg-4">
+                                <!-- Product title -->
+                                <h3 class="mt-0">Parent Details<a href="javascript: void(0);"
+                                        class="text-muted"><i class="mdi mdi-square-edit-outline ms-2"></i></a> </h3>
+
+                                <div class="text-start">
+                                    <p class="text-muted"><strong>Full Name :</strong> <span
+                                            class="ms-2">{{ $bursary->guardian_full_names }}</span></p>
+
+                                    <p class="text-muted"><strong>Mobile :</strong><span
+                                            class="ms-2">{{ $bursary->guardian_phone_number }}</span></p>
                                 </div>
+                                <hr>
+                                <h3 class="mt-0">Health Details<a href="javascript: void(0);"
+                                        class="text-muted"><i class="mdi mdi-square-edit-outline ms-2"></i></a> </h3>
+
+                                <div class="text-start">
+                                    <p class="text-muted"><strong>Special Needs:</strong> <span
+                                            class="ms-2">{{ $bursary->special_needs }}</span></p>
+
+                                    <p class="text-muted">
+                                        <strong>Specification :</strong>
+                                        <span class="ms-2">{{ $bursary->special_needs_description }}</span>
+                                    </p>
+                                    <p class="text-muted">
+                                        <strong>Family Status :</strong>
+                                        <span class="ms-2">{{ $bursary->family_status }}</span>
+                                    </p>
+                                    <p class="text-muted">
+                                        <strong>Family Losses :</strong>
+                                        <span class="ms-2">{{ $bursary->family_income_loss }}</span>
+                                    </p>
+                                    <p class="text-muted">
+                                        <strong>Family Losses :</strong>
+                                        <span
+                                            class="ms-2">{{ $bursary->family_income_loss_description }}</span>
+                                    </p>
+                                </div>
+                                <hr>
+
                                 <div class="mt-4">
                                     <h6 class="font-14">Points Earned</h6>
                                     <div class="d-flex">
@@ -116,94 +165,70 @@
                                             {{ $bursary->points_earned }}</button>
                                     </div>
                                 </div>
-                                <!-- Product information -->
-                                <div class="mt-4">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <h6 class="font-14">Available Stock:</h6>
-                                            <p class="text-sm lh-150">1784</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h6 class="font-14">Number of Orders:</h6>
-                                            <p class="text-sm lh-150">5,458</p>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <h6 class="font-14">Revenue:</h6>
-                                            <p class="text-sm lh-150">$8,57,014</p>
-                                        </div>
-                                    </div>
-                                </div>
+
 
                             </form>
                         </div> <!-- end col -->
                     </div> <!-- end row-->
-
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <!-- Product title -->
+                            <h3 class="mt-0">Helb details<a href="javascript: void(0);" class="text-muted"><i
+                                        class="mdi mdi-square-edit-outline ms-2"></i></a> </h3>
+                            <p class="text-muted"><strong>Applied For Helb:</strong> <span
+                                    class="ms-2">{{ $bursary->student_helb_status }}</span>
+                            <p class="text-muted"><strong>Description:</strong> <span
+                                    class="ms-2">{{ $bursary->student_helb_status_decision }}</span>
+                            <p class="text-muted"><strong>Previous financial Help:</strong> <span
+                                    class="ms-2">{{ $bursary->financial_assistance }}</span>
+                            </p>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="mt-4">
+                                <h6 class="font-14">Supporting Explanation:</h6>
+                                <p>{{ $bursary->application_support }} </p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="table-responsive mt-4">
                         <table class="table table-bordered table-centered mb-0">
                             <thead class="table-light">
                                 <tr>
-                                    <th>Outlets</th>
-                                    <th>Price</th>
-                                    <th>Stock</th>
-                                    <th>Revenue</th>
+                                    <th>Bursary ID</th>
+                                    <th>Bursary Status</th>
+                                    <th>Amount Applied</th>
+                                    <th>Total Points</th>
+                                    <th>Amount Allocated</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>ASOS Ridley Outlet - NYC</td>
-                                    <td>$139.58</td>
+                                    <td>{{ $bursary->bursary_id }}</td>
                                     <td>
-                                        <div class="progress-w-percent mb-0">
-                                            <span class="progress-value">478 </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 56%;"
-                                                    aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
+                                        @if ($bursary->bursary_status == 'applied')
+                                            <span class="badge bg-primary">Recently Applied</span>
+                                        @elseif ($bursary->bursary_status == 'school')
+                                            <span class="badge bg-warning">School Processing</span>
+                                        @elseif ($bursary->bursary_status == 'cdf')
+                                            <span class="badge bg-warning">CDF Reviewing</span>
+
+                                        @elseif ($bursary->bursary_status == 'allocated')
+                                            <span class="badge bg-success">Allocated</span>
+                                        @else
+                                            <span class="badge bg-danger">Denied</span>
+                                        @endif
                                     </td>
-                                    <td>$1,89,547</td>
-                                </tr>
-                                <tr>
-                                    <td>Marco Outlet - SRT</td>
-                                    <td>$149.99</td>
+                                    <td>Kshs. {{ $bursary->amount_applying }}</td>
                                     <td>
                                         <div class="progress-w-percent mb-0">
-                                            <span class="progress-value">73 </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 16%;"
-                                                    aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>$87,245</td>
-                                </tr>
-                                <tr>
-                                    <td>Chairtest Outlet - HY</td>
-                                    <td>$135.87</td>
-                                    <td>
-                                        <div class="progress-w-percent mb-0">
-                                            <span class="progress-value">781 </span>
-                                            <div class="progress progress-sm">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 72%;"
-                                                    aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>$5,87,478</td>
-                                </tr>
-                                <tr>
-                                    <td>Nworld Group - India</td>
-                                    <td>$159.89</td>
-                                    <td>
-                                        <div class="progress-w-percent mb-0">
-                                            <span class="progress-value">815 </span>
+                                            <span class="progress-value">{{ $bursary->points_earned }} </span>
                                             <div class="progress progress-sm">
                                                 <div class="progress-bar bg-success" role="progressbar" style="width: 89%;"
                                                     aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td>$55,781</td>
+                                    <td>Kshs. {{ $bursary->bursary_allocated_amount }}</td>
                                 </tr>
                             </tbody>
                         </table>

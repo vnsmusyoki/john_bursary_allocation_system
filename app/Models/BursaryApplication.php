@@ -34,4 +34,4 @@ class BursaryApplication extends Model
     {
         return $this->belongsTo(CountyConstituency::class, 'bursary_constituency_id', 'id');
     }
-} 
+}
