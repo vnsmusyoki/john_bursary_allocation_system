@@ -190,6 +190,11 @@
                             </div>
                         </div>
                     </div>
+                    @if ($bursary->points_earned == null)
+                        <a href="{{ url('cdf/computer-points/'.$bursary->id) }}" class="btn btn-success ">Click Here to compute Bursary Points</a>
+
+
+                    @endif
                     <div class="table-responsive mt-4">
                         <table class="table table-bordered table-centered mb-0">
                             <thead class="table-light">
@@ -223,7 +228,7 @@
                                         <div class="progress-w-percent mb-0">
                                             <span class="progress-value">{{ $bursary->points_earned }} </span>
                                             <div class="progress progress-sm">
-                                                <div class="progress-bar bg-success" role="progressbar" style="width: 89%;"
+                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 89%;"
                                                     aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>

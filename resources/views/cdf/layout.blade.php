@@ -146,26 +146,14 @@
                         </a>
                     </li>
 
-
-
-
                     <li class="side-nav-item">
-                        <a href="{{ url('cdf/bursary-applications') }}" class="side-nav-link">
-
-                            <span> New Bursary Applications </span>
-                        </a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a href="{{ url('cdf/allocated-applications') }}" class="side-nav-link">
+                        <a href="{{ url('cdf/bursary-points-allocated') }}" class="side-nav-link">
 
                             <span> Allocated Applications </span>
                         </a>
                     </li>
-
-
-
                     <li class="side-nav-item">
-                        <a href="{{ url('school/account-security') }}" class="side-nav-link">
+                        <a href="{{ url('cdf/account-security') }}" class="side-nav-link">
 
                             <span> Account Security </span>
                         </a>

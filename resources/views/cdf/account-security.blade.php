@@ -1,4 +1,4 @@
-@extends('school.layout')
+@extends('cdf.layout')
 @section('title', 'Account Security')
 @section('content')
     <!-- start page title -->
@@ -7,12 +7,12 @@
             <div class="page-title-box">
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">School</a></li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">CDF</a></li>
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Update</a></li>
                         <li class="breadcrumb-item active">Avatar</li>
                     </ol>
                 </div>
-                <h4 class="page-title">School Profile Picture</h4>
+                <h4 class="page-title">CDF Profile Picture</h4>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="floating-preview">
-                            <form action="{{ url('school/update-avatar') }}" method="POST" autocomplete="off"
+                            <form action="{{ url('cdf/update-avatar') }}" method="POST" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -79,7 +79,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="floating-preview">
-                            <form action="{{ url('school/update-email') }}" method="POST" autocomplete="off"
+                            <form action="{{ url('cdf/update-email') }}" method="POST" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -125,7 +125,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane show active" id="floating-preview">
-                            <form action="{{ url('school/update-password') }}" method="POST" autocomplete="off"
+                            <form action="{{ url('cdf/update-password') }}" method="POST" autocomplete="off"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
@@ -133,7 +133,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="password" name="password" class="form-control"
                                                 id="floatingInput">
-                                                <label for="">Password</label>
+                                            <label for="">Password</label>
                                         </div>
                                         @error('password')
                                             <span class="text-danger">{{ $message }}</span>
@@ -143,7 +143,7 @@
                                         <div class="form-floating mb-3">
                                             <input type="password" name="password_confirmation" class="form-control"
                                                 id="floatingInput">
-                                                <label for="">Confirm Password</label>
+                                            <label for="">Confirm Password</label>
                                         </div>
                                         @error('password_confirmation')
                                             <span class="text-danger">{{ $message }}</span>

@@ -69,5 +69,11 @@ Route::prefix('school')->group(function () {
 Route::get('cdf/dashboard', [CdfAccountController::class, 'index'])->name('cdf');
 Route::prefix('cdf')->group(function() {
     Route::get('application-details/{id}', [CdfAccountController::class, 'applicationdetails']);
+    Route::get('computer-points/{id}', [CdfAccountController::class, 'computepoints']);
+    Route::get('bursary-points-allocated', [CdfAccountController::class, 'allocatedpoints']);
+    Route::get('account-security', [CdfAccountController::class, 'accountsecurity']);
+    Route::post('update-password', [CdfAccountController::class, 'updatepassword']);
+    Route::post('update-email', [CdfAccountController::class, 'updateemail']);
+    Route::post('update-avatar', [CdfAccountController::class, 'updateavatar']);
 });
 // dd
