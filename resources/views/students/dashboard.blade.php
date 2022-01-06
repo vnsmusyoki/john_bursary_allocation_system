@@ -66,7 +66,7 @@
 
                         <div class="col-sm-4">
                             <div class="text-center mt-sm-0 mt-3 text-sm-end">
-                                <a href="{{ url('studentr/account-security') }}" class="btn btn-light">
+                                <a href="{{ url('student/account-security') }}" class="btn btn-light">
                                     <i class="mdi mdi-account-edit me-1"></i> Edit Profile
                                 </a>
                             </div>
@@ -174,7 +174,7 @@
                             <div class="card tilebox-one">
                                 <div class="card-body">
                                     <i class="dripicons-jewel float-end text-muted"></i>
-                                    <h2 class="m-b-20">- {{ $application->bursary_allocated_amount }}-</h2>
+                                    <h2 class="m-b-20">[ {{ $application->bursary_allocated_amount }}]</h2>
                                     <span class="badge bg-primary"> </span> <span class="text-muted">Amount
                                         Allocated</span>
                                 </div> <!-- end card-body-->

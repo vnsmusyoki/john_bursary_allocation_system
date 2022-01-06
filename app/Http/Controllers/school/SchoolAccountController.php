@@ -139,4 +139,11 @@ class SchoolAccountController extends Controller
         Toastr::success('Account Avatar has been updated.', 'Success', ["positionClass" => "toast-top-right"]);
         return redirect()->back();
     }
+    public function allocatedbursaries()
+    {
+        $school = School::where('school_admin_user_id', auth()->user()->id)->get()->first();
+        $bursaries = BursaryApplication::where('bursary_school_id', $school->id)->get();
+        $acceptedbursaries = BursaryApplication::where(['bursary_school_id' => $school->id, 'school_status' => 'cdf'])->get();
+        return view('school.allocated-amount', compact(['bursaries', 'acceptedbursaries']));
+    }
 }

@@ -34,13 +34,12 @@
                     <!-- title-->
                     <h4 class="mt-0">Sign In</h4>
                     <p class="text-muted mb-4">Enter your email address and password to access account.</p>
-
-                    <!-- form -->
+ 
                     <form action="{{ route('login') }}" method="POST" autocomplete="off">
                         @csrf
                         <div class="mb-3">
-                            <label for="emailaddress" class="form-label">Email address</label>
-                            <input class="form-control" type="email" id="emailaddress" name="email"
+                            <label  class="form-label">Email address</label>
+                            <input class="form-control" type="text" name="email"
                                 placeholder="Enter your email">
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>
@@ -49,8 +48,8 @@
                         <div class="mb-3">
                             <a href="" class="text-muted float-end"><small>Forgot your
                                     password?</small></a>
-                            <label for="password" class="form-label">Password</label>
-                            <input class="form-control" type="password"  id="password"
+                            <label class="form-label">Password</label>
+                            <input class="form-control" type="password"
                                 placeholder="Enter your password" name="password">
                             @error('password')
                                 <span class="text-danger">{{ $message }}</span>

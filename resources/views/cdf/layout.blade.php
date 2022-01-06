@@ -149,7 +149,13 @@
                     <li class="side-nav-item">
                         <a href="{{ url('cdf/bursary-points-allocated') }}" class="side-nav-link">
 
-                            <span> Allocated Applications </span>
+                            <span> Allocated Application Points </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="{{ url('cdf/amount-allocations') }}" class="side-nav-link">
+
+                            <span>Amount Allocations </span>
                         </a>
                     </li>
                     <li class="side-nav-item">

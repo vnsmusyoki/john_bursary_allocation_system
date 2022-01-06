@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Cdf;
 
 use App\Http\Controllers\Controller;
+use App\Mail\AllocatedAmount;
 use App\Mail\BursaryAllocatedpoints;
 use App\Models\BursaryApplication;
 use App\Models\CountyConstituency;
@@ -38,9 +39,9 @@ class CdfAccountController extends Controller
         $bursary = BursaryApplication::findOrFail($id);
 
         if ($bursary->student_helb_status == "Yes") {
-            $helbapply = 1;
-        } else {
             $helbapply = 0;
+        } else {
+            $helbapply = 1;
         }
         if ($bursary->student_category == "KUCCPS") {
             $admcategory = 3;
@@ -97,8 +98,42 @@ class CdfAccountController extends Controller
     {
         $checkcounty = CountyConstituency::where('user_manager_id', auth()->user()->id)->get()->first();
         $bursaries = BursaryApplication::where('bursary_county_id', $checkcounty->id)->get();
-        $acceptedbursaries = BursaryApplication::where(['bursary_county_id' => $checkcounty->id, 'school_status' => 'cdf'])->get();
+        $acceptedbursaries = BursaryApplication::where(['bursary_constituency_id' => $checkcounty->id, 'school_status' => 'cdf'])->get();
         return view('cdf.allocated-points', compact(['bursaries', 'acceptedbursaries']));
+    }
+    public function awardamount()
+    {
+        $checkcounty = CountyConstituency::where('user_manager_id', auth()->user()->id)->get()->first();
+        $bursaries = BursaryApplication::where('bursary_county_id', $checkcounty->id)->get();
+        $acceptedbursaries = BursaryApplication::where(['bursary_constituency_id' => $checkcounty->id, 'school_status' => 'cdf'])->get();
+        $totalpoints = 0;
+        $allocation = $checkcounty->amount_allocated;
+        foreach($acceptedbursaries as $bursary){
+            $totalpoints +=$bursary->points_earned;
+        }
+        $totalapps =  BursaryApplication::where(['bursary_constituency_id' => $checkcounty->id, 'school_status' => 'cdf'])->get();
+        foreach($totalapps as $sharetotal){
+            $specpoints = $sharetotal->points_earned;
+            $amount =(($specpoints /$totalpoints) * $allocation);
+            $sharetotal->bursary_allocated_amount = intval(round($amount));
+            $sharetotal->save();
+            $receiver = $sharetotal->bursaryuser->email;
+            $topic = "Amount Allocated";
+            $message = "Hello," . $sharetotal->bursaryuser->name . ", You have been allocated  " .intval(round($amount)) . ". Please confirm with your accounts office for further details" . $sharetotal->bursary_id;
+            Mail::to($receiver)->send(new AllocatedAmount($receiver, $topic, $message));
+
+        }
+        Toastr::success('Operation done successfully and student notified via email.', 'Success', ["positionClass" => "toast-top-right"]);
+        return redirect()->to('cdf/amount-allocations');
+
+        // return view('cdf.allocated-points', compact(['bursaries', 'acceptedbursaries']));
+    }
+    public function amountsallocated()
+    {
+        $checkcounty = CountyConstituency::where('user_manager_id', auth()->user()->id)->get()->first();
+        $bursaries = BursaryApplication::where('bursary_county_id', $checkcounty->id)->get();
+        $acceptedbursaries = BursaryApplication::where(['bursary_constituency_id' => $checkcounty->id, 'school_status' => 'cdf'])->get();
+        return view('cdf.allocated-amount', compact(['bursaries', 'acceptedbursaries']));
     }
     public function accountsecurity()
     {

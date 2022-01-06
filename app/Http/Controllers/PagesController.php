@@ -18,14 +18,11 @@ class PagesController extends Controller
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
-        $passwordlength = 6;
-        $str = "1234567890";
-        $password = substr(str_shuffle($str), 0, $passwordlength);
 
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = bcrypt($password);
+        $user->password = bcrypt($request->input('password'));
         $user->save();
         $user->attachRole('student');
         return redirect()->route('login');

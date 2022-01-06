@@ -1,5 +1,5 @@
-@extends('cdf.layout')
-@section('title', 'Main CDF Dashboard')
+@extends('school.layout')
+@section('title', 'Bursary Allocated Amount')
 @section('content')
 
     <!-- start page title -->
@@ -51,10 +51,7 @@
                     </ul> <!-- end nav-->
                     <div class="tab-content">
                         <div class="tab-pane show active" id="scroll-horizontal-preview">
-                            <a href="{{url('cdf/compute-allocations')}}"
-                                class="btn btn-danger">
-                               Recalculate Amount Allocated
-                            </a>
+                           
                             <br>
                             <table id="scroll-horizontal-datatable" class="table w-100 nowrap">
                                 <thead>
@@ -66,6 +63,7 @@
                                         <th>Bursary ID</th>
                                         <th>Amount Applied</th>
                                         <th>Points Earned</th>
+                                        <th>Amount Allocated</th>
                                         <th>School</th>
                                     </tr>
                                 </thead>
@@ -82,7 +80,8 @@
                                                     <td style="text-transform:capitalize;">{{ $app->bursaryconstituency->constituency }}</td>
                                                 <td>{{ $app->bursary_id }}</td>
                                                 <td>Kshs. {{ $app->amount_applying }}</td>
-                                                <td>{{ $app->points_earned }}</td> 
+                                                <td>{{ $app->points_earned }}</td>
+                                                <td>Kshs. {{ $app->bursary_allocated_amount }}</td>
                                                 <td>{{ $app->bursaryschool->school_name }}</td>
 
                                             </tr>

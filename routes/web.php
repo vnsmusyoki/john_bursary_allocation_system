@@ -70,6 +70,7 @@ Route::prefix('school')->group(function () {
     Route::get('bursary-applications', [SchoolAccountController::class, 'bursaryapplications']);
     Route::get('submited-applications', [SchoolAccountController::class, 'submitedbursaryapplications']);
     Route::get('denied-applications', [SchoolAccountController::class, 'deniedbursaryapplications']);
+    Route::get('bursaries-allocated', [SchoolAccountController::class, 'allocatedbursaries']);
     Route::get('account-security', [SchoolAccountController::class, 'accountsecurity']);
     Route::get('application-details/{id}', [SchoolAccountController::class, 'applicationdetails']);
     Route::patch('school-update-application/{id}', [SchoolAccountController::class, 'schoolupdateapplication']);
@@ -85,6 +86,8 @@ Route::prefix('cdf')->group(function () {
     Route::get('application-details/{id}', [CdfAccountController::class, 'applicationdetails']);
     Route::get('computer-points/{id}', [CdfAccountController::class, 'computepoints']);
     Route::get('bursary-points-allocated', [CdfAccountController::class, 'allocatedpoints']);
+    Route::get('amount-allocations', [CdfAccountController::class, 'amountsallocated']);
+    Route::get('compute-allocations', [CdfAccountController::class, 'awardamount']);
     Route::get('account-security', [CdfAccountController::class, 'accountsecurity']);
     Route::post('update-password', [CdfAccountController::class, 'updatepassword']);
     Route::post('update-email', [CdfAccountController::class, 'updateemail']);
