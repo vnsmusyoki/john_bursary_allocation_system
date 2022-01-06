@@ -80,7 +80,7 @@
         <!-- Auth fluid right content -->
         <div class="auth-fluid-right text-center">
             <div class="auth-user-testimonial">
-                <h2 class="mb-3">Bursary Allocation System!</h2>
+                <a href="{{ url('/') }}" class="mb-3">Bursary Allocation System!</a>
                 <p class="lead"><i class="mdi mdi-format-quote-open"></i> Enter your email address and password to access your account<i class="mdi mdi-format-quote-close"></i>
                 </p>
                 <p>
