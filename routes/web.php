@@ -17,7 +17,7 @@ Route::get('/logoutchecked', function (Request $request) {
     $request->session()->flush();
     Auth::logout();
 });
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [PagesController::class, 'index']);

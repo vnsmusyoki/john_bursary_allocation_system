@@ -17,7 +17,7 @@ class StudentAccountController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:student', 'verified']);
+        $this->middleware(['auth', 'role:student']);
     }
 
     public function index()

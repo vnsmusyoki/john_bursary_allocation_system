@@ -36,13 +36,11 @@
     <div class="navbar-custom topnav-navbar topnav-navbar-dark">
         <div class="container-fluid">
 
-            <!-- LOGO -->
-
-
+            
             <ul class="list-unstyled topbar-menu float-end mb-0">
 
                 <li class="dropdown notification-list d-xl-none">
-                    <button class="btn btn-primary">School Dashboard</button>
+                    <button class="btn btn-primary">CDF Dashboard</button>
                 </li>
                 <li class="dropdown notification-list">
                     <a class="nav-link dropdown-toggle arrow-none" data-bs-toggle="dropdown" href="#"

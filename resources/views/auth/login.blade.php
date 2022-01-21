@@ -34,7 +34,7 @@
                     <!-- title-->
                     <h4 class="mt-0">Sign In</h4>
                     <p class="text-muted mb-4">Enter your email address and password to access account.</p>
- 
+
                     <form action="{{ route('login') }}" method="POST" autocomplete="off">
                         @csrf
                         <div class="mb-3">
@@ -46,8 +46,12 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <a href="" class="text-muted float-end"><small>Forgot your
-                                    password?</small></a>
+                        
+                                    @if (Route::has('password.request'))
+                                        <a href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    @endif
                             <label class="form-label">Password</label>
                             <input class="form-control" type="password"
                                 placeholder="Enter your password" name="password">

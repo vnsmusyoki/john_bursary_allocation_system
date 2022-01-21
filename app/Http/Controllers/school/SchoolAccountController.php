@@ -18,7 +18,7 @@ class SchoolAccountController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:school', 'verified']);
+        $this->middleware(['auth', 'role:school']);
     }
     public function index()
     {
@@ -59,6 +59,52 @@ class SchoolAccountController extends Controller
             $topic = "Application Verified by School";
             $message = "Your Application together with the verified details have been verifed and submited to CDF offices for  bursary allocation review. Bursary Tracking ID is " . $bursary->bursary_id;
             $bursary->school_status = "school";
+
+
+
+            if ($bursary->student_helb_status == "Yes") {
+                $helbapply = 0;
+            } else {
+                $helbapply = 1;
+            }
+            if ($bursary->student_category == "KUCCPS") {
+                $admcategory = 3;
+            } else {
+                $admcategory = 4;
+            }
+
+            if ($bursary->financial_assistance == "Never Received") {
+                $fassistance = 4;
+            } else {
+                $fassistance = 2;
+            }
+
+            if ($bursary->family_status == "Total Orphan") {
+                $familystatus = 9;
+            } else if ($bursary->family_status == "Single Parent Orphan") {
+                $familystatus = 8;
+            } else if ($bursary->family_status == "Single Parent") {
+                $familystatus = 7;
+            } else if ($bursary->family_status == "Separated or Divorced Parent") {
+                $familystatus = 6;
+            } else {
+                $familystatus = 5;
+            }
+
+            if ($bursary->special_needs == "Yes") {
+                $specialneeds = 5;
+            } else {
+                $specialneeds = 2;
+            }
+
+            if ($bursary->family_income_loss == "Yes") {
+                $familyloss = 4;
+            } else {
+                $familyloss = 2;
+            }
+
+            $totalpoints = $helbapply + $admcategory + $fassistance + $familystatus + $specialneeds + $familyloss;
+            $bursary->points_earned = $totalpoints;
             $bursary->save();
             Mail::to($receiver)->send(new SchoolAcceptApplication($receiver, $topic, $message));
             Toastr::success('Bursary application has been accepted and student notified.', 'Success', ["positionClass" => "toast-top-right"]);
